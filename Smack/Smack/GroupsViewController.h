@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "Group.h"
+#import "SmackTabViewController.h"
 
-@interface GroupsViewController : UITableViewController
+@interface GroupsViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    NSMutableArray *groups;
+}
+
 - (IBAction)logoutRequested:(id)sender;
 
 @end

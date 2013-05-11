@@ -74,6 +74,7 @@
         [groupToPlayer setObject:[NSNumber numberWithInt:0] forKey:@"Losses"];
         [groupToPlayer setObject:[NSNumber numberWithInt:0] forKey:@"Draws"];
         [groupToPlayer setObject:[NSNumber numberWithInt:0] forKey:@"WLR"];
+        [groupToPlayer setObject:self.groupTextField.text forKey:@"GroupName"];
         [groupToPlayer save];
     } else {
         // There was an error saving the groupObject.

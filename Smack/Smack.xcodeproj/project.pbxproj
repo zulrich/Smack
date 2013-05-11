@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A431CAC7173EB578003ABF60 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CAC6173EB578003ABF60 /* Group.m */; };
+		A431CACD173EC054003ABF60 /* SmackTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CACC173EC054003ABF60 /* SmackTabViewController.m */; };
+		A431CAD0173EC4A6003ABF60 /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CACF173EC4A6003ABF60 /* PlayersViewController.m */; };
+		A431CAD3173ECCB2003ABF60 /* AddPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CAD2173ECCB2003ABF60 /* AddPlayerViewController.m */; };
+		A431CAD6173ED83B003ABF60 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CAD5173ED83B003ABF60 /* Game.m */; };
+		A431CAD9173ED88D003ABF60 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CAD8173ED88D003ABF60 /* Player.m */; };
 		A44942CA173D9A0200A236A0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A44942C7173D9A0200A236A0 /* Default.png */; };
 		A44942CB173D9A0200A236A0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A44942C8173D9A0200A236A0 /* Default@2x.png */; };
 		A44942CC173D9A0200A236A0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A44942C9173D9A0200A236A0 /* Default-568h@2x.png */; };
@@ -52,6 +58,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A431CAC5173EB578003ABF60 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Group.h; path = Smack/Group.h; sourceTree = "<group>"; };
+		A431CAC6173EB578003ABF60 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Group.m; path = Smack/Group.m; sourceTree = "<group>"; };
+		A431CACB173EC054003ABF60 /* SmackTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmackTabViewController.h; path = Smack/SmackTabViewController.h; sourceTree = "<group>"; };
+		A431CACC173EC054003ABF60 /* SmackTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmackTabViewController.m; path = Smack/SmackTabViewController.m; sourceTree = "<group>"; };
+		A431CACE173EC4A6003ABF60 /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayersViewController.h; path = Smack/PlayersViewController.h; sourceTree = "<group>"; };
+		A431CACF173EC4A6003ABF60 /* PlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayersViewController.m; path = Smack/PlayersViewController.m; sourceTree = "<group>"; };
+		A431CAD1173ECCB2003ABF60 /* AddPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPlayerViewController.h; path = Smack/AddPlayerViewController.h; sourceTree = "<group>"; };
+		A431CAD2173ECCB2003ABF60 /* AddPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPlayerViewController.m; path = Smack/AddPlayerViewController.m; sourceTree = "<group>"; };
+		A431CAD4173ED83B003ABF60 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = Smack/Game.h; sourceTree = "<group>"; };
+		A431CAD5173ED83B003ABF60 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = Smack/Game.m; sourceTree = "<group>"; };
+		A431CAD7173ED88D003ABF60 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Smack/Player.h; sourceTree = "<group>"; };
+		A431CAD8173ED88D003ABF60 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Smack/Player.m; sourceTree = "<group>"; };
 		A44942C7173D9A0200A236A0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A44942C8173D9A0200A236A0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A44942C9173D9A0200A236A0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -151,12 +169,24 @@
 		A4D8D8EC173D7F07005EE8A6 = {
 			isa = PBXGroup;
 			children = (
+				A431CACB173EC054003ABF60 /* SmackTabViewController.h */,
+				A431CACC173EC054003ABF60 /* SmackTabViewController.m */,
+				A431CAD4173ED83B003ABF60 /* Game.h */,
+				A431CAD7173ED88D003ABF60 /* Player.h */,
+				A431CAD8173ED88D003ABF60 /* Player.m */,
+				A431CAD5173ED83B003ABF60 /* Game.m */,
+				A431CACE173EC4A6003ABF60 /* PlayersViewController.h */,
+				A431CACF173EC4A6003ABF60 /* PlayersViewController.m */,
 				A4536DD2173DEA2B00B6842A /* LoginViewController.h */,
+				A431CAC5173EB578003ABF60 /* Group.h */,
+				A431CAC6173EB578003ABF60 /* Group.m */,
 				A4536DD3173DEA2B00B6842A /* LoginViewController.m */,
 				A4537054173DFC2700B6842A /* GroupsViewController.h */,
 				A4537055173DFC2800B6842A /* GroupsViewController.m */,
 				A453705A173E016200B6842A /* AddGroupViewController.h */,
 				A453705B173E016200B6842A /* AddGroupViewController.m */,
+				A431CAD1173ECCB2003ABF60 /* AddPlayerViewController.h */,
+				A431CAD2173ECCB2003ABF60 /* AddPlayerViewController.m */,
 				A4D8D8FE173D7F07005EE8A6 /* Smack */,
 				A4D8D8F7173D7F07005EE8A6 /* Frameworks */,
 				A4D8D8F6173D7F07005EE8A6 /* Products */,
@@ -333,6 +363,12 @@
 				A4537056173DFC2800B6842A /* GroupsViewController.m in Sources */,
 				A453705C173E016200B6842A /* AddGroupViewController.m in Sources */,
 				A4537062173E03A500B6842A /* SVProgressHUD.m in Sources */,
+				A431CAC7173EB578003ABF60 /* Group.m in Sources */,
+				A431CACD173EC054003ABF60 /* SmackTabViewController.m in Sources */,
+				A431CAD0173EC4A6003ABF60 /* PlayersViewController.m in Sources */,
+				A431CAD3173ECCB2003ABF60 /* AddPlayerViewController.m in Sources */,
+				A431CAD6173ED83B003ABF60 /* Game.m in Sources */,
+				A431CAD9173ED88D003ABF60 /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

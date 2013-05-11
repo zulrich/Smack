@@ -23,69 +23,35 @@
     return self;
 }
 
+-(void) viewDidAppear:(BOOL)animated
+{
+    groups = [[NSMutableArray alloc] init];
+    [self getGroups];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     
     FBRequest *request = [FBRequest requestForMe];
     [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         // handle response
-        if (!error) {
-            // Parse the data received
-            NSDictionary *userData = (NSDictionary *)result;
+        if (!error)
+        {
+            NSLog(@"Valid facebook session");
             
-            NSString *facebookID = userData[@"id"];
-            
-            NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
-            
-            
-            NSMutableDictionary *userProfile = [NSMutableDictionary dictionaryWithCapacity:7];
-            
-            if (facebookID) {
-                userProfile[@"facebookId"] = facebookID;
-            }
-            
-            if (userData[@"name"]) {
-                userProfile[@"name"] = userData[@"name"];
-            }
-            
-            if (userData[@"location"][@"name"]) {
-                userProfile[@"location"] = userData[@"location"][@"name"];
-            }
-            
-            if (userData[@"gender"]) {
-                userProfile[@"gender"] = userData[@"gender"];
-            }
-            
-            if (userData[@"birthday"]) {
-                userProfile[@"birthday"] = userData[@"birthday"];
-            }
-            
-            if (userData[@"relationship_status"]) {
-                userProfile[@"relationship"] = userData[@"relationship_status"];
-            }
-            
-            if ([pictureURL absoluteString]) {
-                userProfile[@"pictureURL"] = [pictureURL absoluteString];
-            }
-            
-            [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
-            [[PFUser currentUser] saveInBackground];
-            
-        } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
-                    isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
+        }
+        else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"] isEqualToString: @"OAuthException"])
+        { // Since the request failed, we can check if it was due to an invalid session
             NSLog(@"The facebook session was invalidated");
             [self logoutRequested:nil];
-        } else {
+        }
+        else
+        {
             NSLog(@"Some other error: %@", error);
         }
+        
+
     }];
 
 }
@@ -96,20 +62,39 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) getGroups
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"GroupToUser"];
+    [query whereKey:@"fbId" equalTo:[[PFUser currentUser] objectForKey:@"fbId"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error)
+        {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d groups.", objects.count);
+            for(PFObject *groupToUserObject in objects)
+            {
+                Group *groupObj = [[Group alloc] initWithName:[groupToUserObject objectForKey:@"GroupName"] withID:[groupToUserObject objectForKey:@"GroupId"]];
+                [groups addObject:groupObj];
+            }
+        }
+        else
+        {
+            // Log details of the failure
+            NSLog(@"Error here: %@ %@", error, [error userInfo]);
+        }
+        
+        [self.tableView reloadData];
+
+    }];
+
+}
+
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [groups count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,61 +102,33 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    Group *group = [groups objectAtIndex:indexPath.row];
+    cell.textLabel.text = group.groupName;
+        
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [self performSegueWithIdentifier:@"FifaTabSegue" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"FifaTabSegue"]) {
+        // Get destination view
+        SmackTabViewController *smackVC = (SmackTabViewController*)[segue destinationViewController];
+        
+        // Pass the information to your destination view
+        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+        Group *selectedGroup = [groups objectAtIndex:selectedRowIndex.row];
+        smackVC.groupID = selectedGroup.groupID;
+        smackVC.groupName = selectedGroup.groupName;
+    }
 }
 
 - (IBAction)logoutRequested:(id)sender
