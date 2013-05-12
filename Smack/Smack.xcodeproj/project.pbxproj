@@ -13,6 +13,13 @@
 		A431CAD3173ECCB2003ABF60 /* AddPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CAD2173ECCB2003ABF60 /* AddPlayerViewController.m */; };
 		A431CAD6173ED83B003ABF60 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CAD5173ED83B003ABF60 /* Game.m */; };
 		A431CAD9173ED88D003ABF60 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CAD8173ED88D003ABF60 /* Player.m */; };
+		A431CADC173EE17D003ABF60 /* AddGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CADB173EE17C003ABF60 /* AddGameViewController.m */; };
+		A431CADF173EEFF9003ABF60 /* GamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CADE173EEFF9003ABF60 /* GamesViewController.m */; };
+		A431CAE2173EF2F5003ABF60 /* SelectTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CAE1173EF2F5003ABF60 /* SelectTeamViewController.m */; };
+		A431CAE7173EFD5A003ABF60 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CAE4173EFD59003ABF60 /* Team.m */; };
+		A431CAE8173EFD5A003ABF60 /* Teams.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CAE6173EFD5A003ABF60 /* Teams.m */; };
+		A431CAEB173F03DB003ABF60 /* TeamData.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CAEA173F03DB003ABF60 /* TeamData.m */; };
+		A431CAEE173F11EB003ABF60 /* SelectPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A431CAED173F11EB003ABF60 /* SelectPlayerViewController.m */; };
 		A44942CA173D9A0200A236A0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A44942C7173D9A0200A236A0 /* Default.png */; };
 		A44942CB173D9A0200A236A0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A44942C8173D9A0200A236A0 /* Default@2x.png */; };
 		A44942CC173D9A0200A236A0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A44942C9173D9A0200A236A0 /* Default-568h@2x.png */; };
@@ -70,6 +77,20 @@
 		A431CAD5173ED83B003ABF60 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = Smack/Game.m; sourceTree = "<group>"; };
 		A431CAD7173ED88D003ABF60 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Smack/Player.h; sourceTree = "<group>"; };
 		A431CAD8173ED88D003ABF60 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Smack/Player.m; sourceTree = "<group>"; };
+		A431CADA173EE17C003ABF60 /* AddGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGameViewController.h; path = Smack/AddGameViewController.h; sourceTree = "<group>"; };
+		A431CADB173EE17C003ABF60 /* AddGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddGameViewController.m; path = Smack/AddGameViewController.m; sourceTree = "<group>"; };
+		A431CADD173EEFF9003ABF60 /* GamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamesViewController.h; path = Smack/GamesViewController.h; sourceTree = "<group>"; };
+		A431CADE173EEFF9003ABF60 /* GamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamesViewController.m; path = Smack/GamesViewController.m; sourceTree = "<group>"; };
+		A431CAE0173EF2F5003ABF60 /* SelectTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectTeamViewController.h; path = Smack/SelectTeamViewController.h; sourceTree = "<group>"; };
+		A431CAE1173EF2F5003ABF60 /* SelectTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectTeamViewController.m; path = Smack/SelectTeamViewController.m; sourceTree = "<group>"; };
+		A431CAE3173EFD59003ABF60 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		A431CAE4173EFD59003ABF60 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		A431CAE5173EFD59003ABF60 /* Teams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teams.h; sourceTree = "<group>"; };
+		A431CAE6173EFD5A003ABF60 /* Teams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teams.m; sourceTree = "<group>"; };
+		A431CAE9173F03DB003ABF60 /* TeamData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamData.h; sourceTree = "<group>"; };
+		A431CAEA173F03DB003ABF60 /* TeamData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamData.m; sourceTree = "<group>"; };
+		A431CAEC173F11EB003ABF60 /* SelectPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPlayerViewController.h; sourceTree = "<group>"; };
+		A431CAED173F11EB003ABF60 /* SelectPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPlayerViewController.m; sourceTree = "<group>"; };
 		A44942C7173D9A0200A236A0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A44942C8173D9A0200A236A0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A44942C9173D9A0200A236A0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -171,6 +192,20 @@
 			children = (
 				A431CACB173EC054003ABF60 /* SmackTabViewController.h */,
 				A431CACC173EC054003ABF60 /* SmackTabViewController.m */,
+				A431CAEC173F11EB003ABF60 /* SelectPlayerViewController.h */,
+				A431CAED173F11EB003ABF60 /* SelectPlayerViewController.m */,
+				A431CAE9173F03DB003ABF60 /* TeamData.h */,
+				A431CAEA173F03DB003ABF60 /* TeamData.m */,
+				A431CAE0173EF2F5003ABF60 /* SelectTeamViewController.h */,
+				A431CAE1173EF2F5003ABF60 /* SelectTeamViewController.m */,
+				A431CAE3173EFD59003ABF60 /* Team.h */,
+				A431CAE4173EFD59003ABF60 /* Team.m */,
+				A431CAE5173EFD59003ABF60 /* Teams.h */,
+				A431CAE6173EFD5A003ABF60 /* Teams.m */,
+				A431CADD173EEFF9003ABF60 /* GamesViewController.h */,
+				A431CADE173EEFF9003ABF60 /* GamesViewController.m */,
+				A431CADA173EE17C003ABF60 /* AddGameViewController.h */,
+				A431CADB173EE17C003ABF60 /* AddGameViewController.m */,
 				A431CAD4173ED83B003ABF60 /* Game.h */,
 				A431CAD7173ED88D003ABF60 /* Player.h */,
 				A431CAD8173ED88D003ABF60 /* Player.m */,
@@ -369,6 +404,13 @@
 				A431CAD3173ECCB2003ABF60 /* AddPlayerViewController.m in Sources */,
 				A431CAD6173ED83B003ABF60 /* Game.m in Sources */,
 				A431CAD9173ED88D003ABF60 /* Player.m in Sources */,
+				A431CADC173EE17D003ABF60 /* AddGameViewController.m in Sources */,
+				A431CADF173EEFF9003ABF60 /* GamesViewController.m in Sources */,
+				A431CAE2173EF2F5003ABF60 /* SelectTeamViewController.m in Sources */,
+				A431CAE7173EFD5A003ABF60 /* Team.m in Sources */,
+				A431CAE8173EFD5A003ABF60 /* Teams.m in Sources */,
+				A431CAEB173F03DB003ABF60 /* TeamData.m in Sources */,
+				A431CAEE173F11EB003ABF60 /* SelectPlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

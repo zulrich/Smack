@@ -44,6 +44,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    [[TeamData FifaTeams] startLoading];
     [self refresh];
 }
 
@@ -155,11 +156,12 @@
      controller.gameToShow = gameToShow;
      }*/
     
-    if ([[segue identifier] isEqualToString:@"addGame"]) {
-//        UINavigationController *navigationController = segue.destinationViewController;
-//        AddGameViewController *vc = (AddGameViewController*)navigationController.topViewController;
-//        vc.groupId = groupId;
-//        [vc setPlayers:players];
+    if ([[segue identifier] isEqualToString:@"addGameSegue"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        AddGameViewController *vc = (AddGameViewController*)navigationController.topViewController;
+        vc.groupId = self.groupID;
+
+        [vc setPlayers:players];
         
     }
     else if ([[segue identifier] isEqualToString:@"addPlayerSegue"]) {
@@ -173,7 +175,7 @@
 #pragma mark - UITabBarControllerDelegate
 -(void)addGameSegue
 {
-    [self performSegueWithIdentifier:@"addGame" sender:self];
+    [self performSegueWithIdentifier:@"addGameSegue" sender:self];
 }
 -(void)addPlayerSegue
 {
@@ -190,14 +192,14 @@
         self.navigationItem.rightBarButtonItem = button;
         
     }
-//    else if([viewController isKindOfClass:[GameViewController class]])
-//    {
-//        
-//        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Add Game" style:UIBarButtonItemStylePlain target:self action:@selector(addGameSegue)];
-//        self.navigationItem.rightBarButtonItem = button;
-//        
-//        
-//        
+    else if([viewController isKindOfClass:[GamesViewController class]])
+    {
+        
+        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Add Game" style:UIBarButtonItemStylePlain target:self action:@selector(addGameSegue)];
+        self.navigationItem.rightBarButtonItem = button;
+    }
+    
+        
 //    }
 //    else if([viewController isKindOfClass:[LeaderboardViewController class]])
 //    {
