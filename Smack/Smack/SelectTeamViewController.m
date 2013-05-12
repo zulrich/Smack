@@ -10,7 +10,7 @@
 
 @interface SelectTeamViewController ()
 {
-    Teams *teams;
+    NSMutableArray *filteredTeamArray;
 }
 
 
@@ -18,8 +18,7 @@
 
 @implementation SelectTeamViewController
 
-@synthesize teamArray;
-@synthesize filteredTeamArray;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,11 +32,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    teams = [[Teams alloc] initArray];
-    [teams sortAtoZ];
+    
+    filteredTeamArray = [[TeamData FifaTeams] getCopyTeamData];
 
-    teamArray = teams;
-    filteredTeamArray = [NSMutableArray arrayWithCapacity:[teamArray count]];
+    //filteredTeamArray = [NSMutableArray arrayWithCapacity:[teamArray count]];
     
     // Reload the table
     [[self teamTableView] reloadData];
@@ -67,7 +65,7 @@
     }
 	else
 	{
-        return [teamArray count];
+        return [[TeamData FifaTeams] teamInfoCount];
     }
 }
 
@@ -92,11 +90,9 @@
     }
 	else
 	{
-        team = [teamArray objectAtIndex:[indexPath row]];
+        team = [[TeamData FifaTeams] getTeamAtIndex:[indexPath row]]; 
     }
-    
-    //cell.nameLabel.text = @"test";
-    
+        
     cell.nameLabel.text = team.name;
     cell.accessoryType = UITableViewCellAccessoryNone;
     
@@ -118,7 +114,7 @@
     }
 	else
 	{
-        team = [teamArray objectAtIndex:[indexPath row]];
+        team = [[TeamData FifaTeams] getTeamAtIndex:[indexPath row]];
     }
     teamIndex = team.index;
     
@@ -135,11 +131,11 @@
 	// Update the filtered array based on the search text and scope.
 	
     // Remove all objects from the filtered search array
-	[self.filteredTeamArray removeAllObjects];
+	[filteredTeamArray removeAllObjects];
     
 	// Filter the array using NSPredicate
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
-    NSArray *tempArray = [teamArray filteredArrayUsingPredicate:predicate];
+    NSArray *tempArray = [[[TeamData FifaTeams] getCopyTeamData] filteredArrayUsingPredicate:predicate];
     
     filteredTeamArray = [NSMutableArray arrayWithArray:tempArray];
 }

@@ -11,12 +11,10 @@
 #import "Game.h"
 #import "Team.h"
 #import "TeamData.h"
-#import "Teams.h"
 
 @interface GamesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *games;
-@property (nonatomic, retain) Teams *teams;
 
 @property (strong, nonatomic) IBOutlet UITableView *gamesTableView;
 

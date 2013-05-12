@@ -15,7 +15,6 @@
 @implementation GamesViewController
 
 @synthesize games;
-@synthesize teams;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    teams = [[Teams alloc] initArray];
 	// Do any additional setup after loading the view.
 }
 
@@ -67,11 +65,12 @@
     cell.player2Name.text = game.player2Name;
     cell.player2Score.text = [game.player2Score stringValue];
     
-    Team *team1 = [teams objectAtIndex:[game.team1Index intValue]];
+    Team *team1 = [[TeamData FifaTeams] getTeamAtIndex:[game.team1Index intValue]];
+    
     UIImage *image1 = [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team1.name]];
     [cell.team1Image setImage:(UIImage *) image1];
     
-    Team *team2 = [teams objectAtIndex:[game.team2Index intValue]];
+    Team *team2 = [[TeamData FifaTeams] getTeamAtIndex:[game.team2Index intValue]];
     UIImage *image2 = [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team2.name]];
     [cell.team2Image setImage:(UIImage *) image2];
     

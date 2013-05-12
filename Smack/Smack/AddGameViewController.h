@@ -10,7 +10,6 @@
 #import "SelectTeamViewController.h"
 #import "SelectPlayerViewController.h"
 #import "Team.h"
-#import "Teams.h"
 #import "TeamData.h"
 #import "Player.h"
 #import "SVProgressHUD.h"

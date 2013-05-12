@@ -20,6 +20,9 @@
 
 -(NSData *)getImageForTeamName:(NSString *)name;
 -(void) startLoading;
+- (id)getTeamAtIndex:(NSUInteger)index;
+-(NSMutableArray *)getCopyTeamData;
+-(NSUInteger)teamInfoCount;
 
 +(TeamData *)FifaTeams;
 

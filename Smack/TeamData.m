@@ -653,13 +653,20 @@ static TeamData *myTeamData;
         [self sortAtoZ];
         return;
 }
+
+-(NSMutableArray *)getCopyTeamData
+{
+    NSMutableArray *returnArr = [[NSMutableArray alloc] initWithArray:teamInfo];
+    return returnArr;
+}
+
     
--(NSUInteger)count
+-(NSUInteger)teamInfoCount
 {
         return [teamInfo count];
 }
     
-- (id)objectAtIndex:(NSUInteger)index
+- (id)getTeamAtIndex:(NSUInteger)index
 {
         //[self.team
         return [teamInfo objectAtIndex:index];

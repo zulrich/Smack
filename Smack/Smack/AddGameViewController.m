@@ -59,7 +59,8 @@
     
     team1Score = [[NSNumber alloc] initWithInt:0];
     team2Score = [[NSNumber alloc] initWithInt:0];
-	// Do any additional setup after loading the view.
+
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,10 +88,9 @@
         team1Index = theTeamObject.index;
         team1 = theTeamObject;
         [self.team1Button setTitle:theTeamObject.name forState:UIControlStateNormal];
-       // NSString *name = team1.name;
         NSLog(@"Name is %@", team1.name);
-        //UIImage *image =  [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:name]];
-        //[self.player1Image setImage:(UIImage *) image];
+        UIImage *image =  [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team1.name]];
+        [self.player1ImageView setImage:(UIImage *) image];
     }
     else if (selectTeam2) {
         NSLog(@"select t2");
@@ -98,8 +98,8 @@
         team2 = theTeamObject;
         [self.team2Button setTitle:team2.name forState:UIControlStateNormal];
         //NSString *name = team2.name;
-        //UIImage *image =  [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:name]];
-        //[self.player2Image setImage:(UIImage *) image];
+        UIImage *image =  [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team2.name]];
+        [self.player2ImageView setImage:(UIImage *) image];
     }
 }
 
@@ -302,5 +302,32 @@
     int scoreValue = ((UIStepper *)sender).value;
     [player2ScoreLabel setText:[NSString stringWithFormat:@"%d", scoreValue]];
     team2Score = [NSNumber numberWithInt:scoreValue];
+}
+
+-(void) loadImagesToParse
+{
+    for (int i = 0; i < [[TeamData FifaTeams] teamInfoCount]; i++)
+    {
+        
+        Team *team = [[TeamData FifaTeams] getTeamAtIndex:i];
+        
+        NSLog(@"team name is %@", team.name);
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"FifaTeams"];
+        [query whereKey:@"name" equalTo:team.name];
+        PFObject *player = [query getFirstObject];
+        NSLog(@"teamName %@", team.image);
+        UIImage *image = [UIImage imageNamed:team.image];
+        NSData *imageData = UIImagePNGRepresentation(image);
+        
+        PFFile *imageFile = [PFFile fileWithName:team.image data:imageData];
+        [player setObject:imageFile forKey:@"logo"];
+        [player setObject:team.image forKey:@"logoName"];
+        [player saveInBackground];
+        
+    }
+    
+    NSLog(@"ALL DONE");
+
 }
 @end

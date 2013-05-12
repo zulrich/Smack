@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TeamSelectCell.h"
 #import "Team.h"
-#import "Teams.h"
+#import "TeamData.h"
 @class SelectTeamViewController;
 
 @protocol SelectTeamViewControllerDelegate <NSObject>
@@ -22,8 +22,6 @@
 
 @property (nonatomic, weak) id <SelectTeamViewControllerDelegate> delegate;
 
-@property (strong,nonatomic) NSArray *teamArray;
-@property (strong,nonatomic) NSMutableArray *filteredTeamArray;
 @property (strong, nonatomic) IBOutlet UITableView *teamTableView;
 
 @property (strong, nonatomic) IBOutlet UISearchBar *teamSearchBar;
