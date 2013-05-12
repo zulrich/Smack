@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Team.h"
 
 @interface TeamData : NSObject{
     
     NSMutableArray *images;
     NSMutableDictionary *imageDictionary;
+    NSMutableArray *teamInfo;
     
     
 }
