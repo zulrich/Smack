@@ -17,5 +17,6 @@ name
 ,wins
 ,losses
 ,draws
-,WLR;
+,WLR
+,profilePicData;
 @end

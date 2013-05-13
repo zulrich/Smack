@@ -16,6 +16,7 @@
 
 @synthesize players;
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -61,6 +62,27 @@
     
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"selectPlayerSegue" sender:nil];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"selectPlayerSegue"]) {
+        // Get destination view
+        PlayerInfoViewController *playerVC = (PlayerInfoViewController*)[segue destinationViewController];
+        
+        // Pass the information to your destination view
+        NSIndexPath *selectedRowIndex = [self.playersTable indexPathForSelectedRow];
+        Player *selectedPlayer = [players objectAtIndex:selectedRowIndex.row];
+        playerVC.selectedPlayer = selectedPlayer;
+        playerVC.games = self.games;
+        [self.playersTable deselectRowAtIndexPath:selectedRowIndex animated:YES];
+
+    }
 }
 
 @end

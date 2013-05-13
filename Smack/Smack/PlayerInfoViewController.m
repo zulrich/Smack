@@ -1,20 +1,24 @@
 //
-//  GamesViewController.m
+//  PlayerInfoViewController.m
 //  Smack
 //
-//  Created by Zack Ulrich on 5/11/13.
+//  Created by Zack Ulrich on 5/12/13.
 //  Copyright (c) 2013 Zack Ulrich. All rights reserved.
 //
 
-#import "GamesViewController.h"
+#import "PlayerInfoViewController.h"
 
-@interface GamesViewController ()
+@interface PlayerInfoViewController ()
+{
+    NSArray *usersGames;
+}
 
 @end
 
-@implementation GamesViewController
+@implementation PlayerInfoViewController
 
 @synthesize games;
+@synthesize selectedPlayer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,33 +33,26 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.playerNameLabel.text = self.selectedPlayer.name;
+    //playerFavTeam.text = player.favoriteTeam;
+    self.playerRecordLabel.text = [NSString stringWithFormat:@"%d - %d - %d", self.selectedPlayer.wins.intValue, self.selectedPlayer.losses.intValue, self.selectedPlayer.draws.intValue];
+    NSPredicate *Predicate =
+    [NSPredicate predicateWithFormat:@"player2Id contains %@ OR player1Id contains %@ ", self.selectedPlayer.objectId, self.selectedPlayer.objectId];
+    usersGames = [games filteredArrayUsingPredicate:Predicate];
+    
+    NSLog(@"player selected: %@", self.selectedPlayer.name);
+    NSLog(@"games count: %d", [games count]);
+    
 }
 
-- (void)didReceiveMemoryWarning
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
+    return 91;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"numgames: %d",[self.games count]);
-	return [self.games count];
-}
-
--(void)reloadView
-{
-    [self.gamesTableView reloadData];
-}
-
--(void)gameRemoved
-{
-    [self.gameViewDelegate gameRemoved];
+	return [usersGames count];
 }
 
 
@@ -63,13 +60,13 @@
 {
     static NSString *CellIdentifier = @"gameCell";
     
-    GameCell *cell = [self.gamesTableView
+    GameCell *cell = [self.playerRecordTableView
                       dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[GameCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     // Configure the cell...
-    Game *game = [self.games objectAtIndex: [indexPath row]];
+    Game *game = [usersGames objectAtIndex: [indexPath row]];
     cell.player1Name.text = game.player1Name;
     cell.player1Score.text = [game.player1Score stringValue];
     cell.player2Name.text = game.player2Name;
@@ -79,6 +76,7 @@
     
     UIImage *image1 = [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team1.name]];
     [cell.team1Image setImage:(UIImage *) image1];
+    NSLog(@"image name: %@", team1.image);
     
     Team *team2 = [[TeamData FifaTeams] getTeamAtIndex:[game.team2Index intValue]];
     UIImage *image2 = [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team2.name]];
@@ -86,30 +84,12 @@
     
     return cell;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+
+
+- (void)didReceiveMemoryWarning
 {
-    return 91;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-//	gameToShow = [self.games objectAtIndex:[indexPath row]];
-    [self performSegueWithIdentifier:@"selectGameSegue" sender:self];
-    
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([segue.identifier isEqualToString:@"selectGameSegue"])
-    {
-        GameInfoViewController *controller = (GameInfoViewController*) segue.destinationViewController;
-        NSIndexPath *selectedRowIndex = [self.gamesTableView indexPathForSelectedRow];
-
-        controller.selectedGame = [self.games objectAtIndex:selectedRowIndex.row];
-        [controller setGameInfoDelegate:self];
-        
-        [self.gamesTableView deselectRowAtIndexPath:selectedRowIndex animated:YES];
-    }
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

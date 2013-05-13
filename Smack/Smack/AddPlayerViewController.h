@@ -8,11 +8,25 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "SVProgressHUD.h"
+#import "Player.h"
+
+@class AddPlayerViewController;
+@protocol AddPlayerDelegate <NSObject>
+
+-(void) newPlayerAdded;
+
+@end
 
 @interface AddPlayerViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate>
 
+@property (nonatomic, weak) id <AddPlayerDelegate> addPlayerDelegate;
+
 - (IBAction)savePressed:(id)sender;
 - (IBAction)cancelPressed:(id)sender;
+
+
+
 
 @property (nonatomic, strong) NSString *groupID;
 @property (nonatomic, strong) NSString *groupName;

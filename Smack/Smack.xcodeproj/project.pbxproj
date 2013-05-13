@@ -622,6 +622,12 @@
 		A49F43571740127400E835B2 /* sVitoria.png in Resources */ = {isa = PBXBuildFile; fileRef = A49F41091740127300E835B2 /* sVitoria.png */; };
 		A49F43581740127400E835B2 /* sWhitecaps.png in Resources */ = {isa = PBXBuildFile; fileRef = A49F410A1740127400E835B2 /* sWhitecaps.png */; };
 		A49F43591740127400E835B2 /* sZenit.png in Resources */ = {isa = PBXBuildFile; fileRef = A49F410B1740127400E835B2 /* sZenit.png */; };
+		A49F435C174026D000E835B2 /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A49F435B174026D000E835B2 /* LeaderboardViewController.m */; };
+		A49F435F17403FD900E835B2 /* PlayerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A49F435E17403FD900E835B2 /* PlayerInfoViewController.m */; };
+		A49F43621740638F00E835B2 /* GameInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A49F43611740638F00E835B2 /* GameInfoViewController.m */; };
+		A49F4365174083AF00E835B2 /* rjdoW.png in Resources */ = {isa = PBXBuildFile; fileRef = A49F4363174083AE00E835B2 /* rjdoW.png */; };
+		A49F4366174083AF00E835B2 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A49F4364174083AE00E835B2 /* arrow.png */; };
+		A49F4368174083F500E835B2 /* LoginWithFacebookNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = A49F4367174083F500E835B2 /* LoginWithFacebookNormal.png */; };
 		A4D8D8F9173D7F07005EE8A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D8D8F8173D7F07005EE8A6 /* UIKit.framework */; };
 		A4D8D8FB173D7F07005EE8A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D8D8FA173D7F07005EE8A6 /* Foundation.framework */; };
 		A4D8D8FD173D7F07005EE8A6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D8D8FC173D7F07005EE8A6 /* CoreGraphics.framework */; };
@@ -1284,6 +1290,15 @@
 		A49F41091740127300E835B2 /* sVitoria.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sVitoria.png; sourceTree = "<group>"; };
 		A49F410A1740127400E835B2 /* sWhitecaps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sWhitecaps.png; sourceTree = "<group>"; };
 		A49F410B1740127400E835B2 /* sZenit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sZenit.png; sourceTree = "<group>"; };
+		A49F435A174026D000E835B2 /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderboardViewController.h; path = Smack/LeaderboardViewController.h; sourceTree = "<group>"; };
+		A49F435B174026D000E835B2 /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderboardViewController.m; path = Smack/LeaderboardViewController.m; sourceTree = "<group>"; };
+		A49F435D17403FD900E835B2 /* PlayerInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInfoViewController.h; sourceTree = "<group>"; };
+		A49F435E17403FD900E835B2 /* PlayerInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInfoViewController.m; sourceTree = "<group>"; };
+		A49F43601740638E00E835B2 /* GameInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameInfoViewController.h; path = Smack/GameInfoViewController.h; sourceTree = "<group>"; };
+		A49F43611740638F00E835B2 /* GameInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameInfoViewController.m; path = Smack/GameInfoViewController.m; sourceTree = "<group>"; };
+		A49F4363174083AE00E835B2 /* rjdoW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rjdoW.png; sourceTree = "<group>"; };
+		A49F4364174083AE00E835B2 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		A49F4367174083F500E835B2 /* LoginWithFacebookNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginWithFacebookNormal.png; sourceTree = "<group>"; };
 		A4D8D8F5173D7F07005EE8A6 /* Smack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D8D8F8173D7F07005EE8A6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A4D8D8FA173D7F07005EE8A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1963,6 +1978,8 @@
 			children = (
 				A431CACB173EC054003ABF60 /* SmackTabViewController.h */,
 				A431CACC173EC054003ABF60 /* SmackTabViewController.m */,
+				A49F43601740638E00E835B2 /* GameInfoViewController.h */,
+				A49F43611740638F00E835B2 /* GameInfoViewController.m */,
 				A431CAEC173F11EB003ABF60 /* SelectPlayerViewController.h */,
 				A431CAED173F11EB003ABF60 /* SelectPlayerViewController.m */,
 				A431CAE9173F03DB003ABF60 /* TeamData.h */,
@@ -1973,6 +1990,8 @@
 				A431CAE4173EFD59003ABF60 /* Team.m */,
 				A431CADD173EEFF9003ABF60 /* GamesViewController.h */,
 				A431CADE173EEFF9003ABF60 /* GamesViewController.m */,
+				A49F435A174026D000E835B2 /* LeaderboardViewController.h */,
+				A49F435B174026D000E835B2 /* LeaderboardViewController.m */,
 				A431CADA173EE17C003ABF60 /* AddGameViewController.h */,
 				A431CADB173EE17C003ABF60 /* AddGameViewController.m */,
 				A431CAD4173ED83B003ABF60 /* Game.h */,
@@ -2035,6 +2054,9 @@
 		A4D8D8FE173D7F07005EE8A6 /* Smack */ = {
 			isa = PBXGroup;
 			children = (
+				A49F4367174083F500E835B2 /* LoginWithFacebookNormal.png */,
+				A49F4363174083AE00E835B2 /* rjdoW.png */,
+				A49F4364174083AE00E835B2 /* arrow.png */,
 				A49F3EBD1740127000E835B2 /* team icons */,
 				A4D8D96D173D97C9005EE8A6 /* 85-trophy.png */,
 				A4D8D96E173D97C9005EE8A6 /* 85-trophy@2x.png */,
@@ -2045,6 +2067,8 @@
 				A4D8D907173D7F07005EE8A6 /* AppDelegate.h */,
 				A4D8D908173D7F07005EE8A6 /* AppDelegate.m */,
 				A4D8D910173D7F07005EE8A6 /* MainStoryboard.storyboard */,
+				A49F435D17403FD900E835B2 /* PlayerInfoViewController.h */,
+				A49F435E17403FD900E835B2 /* PlayerInfoViewController.m */,
 				A4D8D944173D95D6005EE8A6 /* Cells */,
 				A4D8D8FF173D7F07005EE8A6 /* Supporting Files */,
 			);
@@ -2736,6 +2760,9 @@
 				A49F43571740127400E835B2 /* sVitoria.png in Resources */,
 				A49F43581740127400E835B2 /* sWhitecaps.png in Resources */,
 				A49F43591740127400E835B2 /* sZenit.png in Resources */,
+				A49F4365174083AF00E835B2 /* rjdoW.png in Resources */,
+				A49F4366174083AF00E835B2 /* arrow.png in Resources */,
+				A49F4368174083F500E835B2 /* LoginWithFacebookNormal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2769,6 +2796,9 @@
 				A431CAE7173EFD5A003ABF60 /* Team.m in Sources */,
 				A431CAEB173F03DB003ABF60 /* TeamData.m in Sources */,
 				A431CAEE173F11EB003ABF60 /* SelectPlayerViewController.m in Sources */,
+				A49F435C174026D000E835B2 /* LeaderboardViewController.m in Sources */,
+				A49F435F17403FD900E835B2 /* PlayerInfoViewController.m in Sources */,
+				A49F43621740638F00E835B2 /* GameInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

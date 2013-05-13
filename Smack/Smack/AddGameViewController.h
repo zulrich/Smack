@@ -14,8 +14,21 @@
 #import "Player.h"
 #import "SVProgressHUD.h"
 #import <Parse/Parse.h>
+#import "Game.h"
+
+
+@class AddGameViewController;
+
+@protocol AddGameDelegate <NSObject>
+
+-(void)newGameAdded:(Game *)newGame;
+
+@end
 
 @interface AddGameViewController : UIViewController<SelectTeamViewControllerDelegate, SelectPlayerViewControllerDelegate>
+
+@property (nonatomic, weak) id <AddGameDelegate> addGameDelegate;
+
 @property (strong, nonatomic) IBOutlet UIImageView *player1ImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *player2ImageView;
 

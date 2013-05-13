@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "PlayersViewController.h"
 #import "GamesViewController.h"
+#import "LeaderboardViewController.h"
 #import "AddPlayerViewController.h"
 #import "AddGameViewController.h"
 #import "Game.h"
 #import "Player.h"
 #import "TeamData.h"
 
-@interface SmackTabViewController : UITabBarController<UITabBarControllerDelegate>
+@interface SmackTabViewController : UITabBarController<UITabBarControllerDelegate, AddGameDelegate, AddPlayerDelegate, GamesViewDelegate>
 
 @property (nonatomic, strong) NSString *groupName;
 @property (nonatomic, strong) NSString *groupID;

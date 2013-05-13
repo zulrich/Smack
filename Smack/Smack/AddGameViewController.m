@@ -143,6 +143,18 @@
     [self saveGame:^(bool success) {
         if(success) {
             [SVProgressHUD showSuccessWithStatus:@"Great success!"];
+            Game *newGame = [[Game alloc] init];
+            newGame.player1Id = player1.objectId;
+            newGame.player1Name = player1.name;
+            newGame.player1Score = team1Score;
+            newGame.player1Team = team1.name;
+            
+            newGame.player2Id = player2.objectId;
+            newGame.player2Name = player2.name;
+            newGame.player2Score = team2Score;
+            newGame.player2Team = team2.name;
+            
+            [self.addGameDelegate newGameAdded:newGame];
             [self dismissViewControllerAnimated:YES completion:nil];
             NSLog(@"Tables updated");
         }
@@ -183,7 +195,9 @@
         if (succeeded) {
             gameDataSaved = YES;
             if(player1Updated && player2Updated)
+            {
                 block(YES);
+            }
         }
         else {
             if (!player1Updated && !player2Updated && !gameDataSaved) {

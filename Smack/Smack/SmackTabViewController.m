@@ -31,7 +31,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[TeamData FifaTeams] startLoading];
     self.delegate = self;
+    
+    [self refreshGames];
+    [self refreshPlayers];
+    
+    
 
 	// Do any additional setup after loading the view.
 }
@@ -42,17 +48,18 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewDidAppear:(BOOL)animated
+{
     [super viewDidAppear:animated];
-    [[TeamData FifaTeams] startLoading];
-    [self refresh];
+
 }
 
 -(void)refreshCallback:(NSNotification *)notification{
     NSLog(@"RefreshCallback");
 }
 
--(void)refresh{
+-(void)refreshPlayers
+{
     PFQuery *queryForPlayers = [PFQuery queryWithClassName:@"GroupToUser"];
     [queryForPlayers whereKey:@"GroupId" equalTo:self.groupID];
     queryForPlayers.cachePolicy = kPFCachePolicyCacheThenNetwork;
@@ -68,21 +75,23 @@
             tempPlayer.WLR = [player objectForKey:@"WLR"];
             tempPlayer.fbId = [player objectForKey:@"fbId"];
             [playersTemp addObject:tempPlayer];
-
+            
         }
         self.players = playersTemp;
         [self updatePlayers];
         NSLog(@"updated players");
     }];
-    
-    PFQuery *queryForGames = [PFQuery queryWithClassName:@"Game"];
+}
+
+-(void)refreshGames
+{
+    PFQuery *queryForGames = [PFQuery queryWithClassName:@"FifaGames"];
     [queryForGames whereKey:@"GroupId" equalTo:self.groupID];
     queryForGames.cachePolicy = kPFCachePolicyCacheThenNetwork;
     [queryForGames orderByDescending:@"updatedAt"];
     [queryForGames findObjectsInBackgroundWithBlock:^(NSArray *playerObjects, NSError *error) {
         NSMutableArray *gamesTemp = [[NSMutableArray alloc] init];
         for (PFObject *player in playerObjects) { //player is really a game
-            //Game *tempGame = [NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:self.managedObjectContext];
             if([[player objectForKey:@"isArchived"] isEqualToNumber:[NSNumber numberWithBool:NO]]){
                 Game *tempGame = [[Game alloc] init];
                 tempGame.objectId = player.objectId;
@@ -104,72 +113,96 @@
         [self updateGames];
         NSLog(@"updated games");
     }];
+
 }
 
--(void)updatePlayers{
-    for (UIViewController *vc in self.viewControllers)  {
+-(void)updatePlayers
+{
+    for (UIViewController *vc in self.viewControllers)
+    {
         if([vc isKindOfClass:[PlayersViewController class]])
         {
             ((PlayersViewController*)vc).players = self.players;
             [((PlayersViewController*)vc) reloadView];
         }
-//        else if([vc isKindOfClass:[GameViewController class]])
-//        {
-//        }
-//        else if([vc isKindOfClass:[LeaderboardViewController class]])
-//        {
-//            ((LeaderboardViewController*)vc).players = self.players;
-//            [((LeaderboardViewController*)vc) reloadView];
-//        }
+        else if([vc isKindOfClass:[GamesViewController class]])
+        {
+            //Nothing to update
+        }
+        else if([vc isKindOfClass:[LeaderboardViewController class]])
+        {
+            ((LeaderboardViewController*)vc).players = self.players;
+            [((LeaderboardViewController*)vc) reloadView];
+        }
     }
 }
 
--(void)updateGames{
-    for (UIViewController *vc in self.viewControllers)  {
-//        if([vc isKindOfClass:[PlayersViewController class]])
-//        {
-//            ((GameViewController*)vc).games = self.games;
-//            [((GameViewController*)vc) reloadView];
-//        }
-//        else if([vc isKindOfClass:[GameViewController class]])
-//        {
-//            ((GameViewController*)vc).games = self.games;
-//            [((GameViewController*)vc) reloadView];
-//        }
-//        else if([vc isKindOfClass:[LeaderboardViewController class]])
-//        {
-//            ((GameViewController*)vc).games = self.games;
-//            [((GameViewController*)vc) reloadView];
-//            
-//        }
+-(void)updateGames
+{
+    for (UIViewController *vc in self.viewControllers)
+    {
+        if([vc isKindOfClass:[PlayersViewController class]])
+        {
+
+            ((PlayersViewController*)vc).games = self.games;
+            [((PlayersViewController*)vc) reloadView];
+        }
+        else if([vc isKindOfClass:[GamesViewController class]])
+        {
+            ((GamesViewController*)vc).games = self.games;
+            [((GamesViewController*)vc) setGameViewDelegate:self];
+            [((GamesViewController*)vc) reloadView];
+        }
+        else if([vc isKindOfClass:[LeaderboardViewController class]])
+        {
+            ((LeaderboardViewController*)vc).games = self.games;
+            [((LeaderboardViewController*)vc) reloadView];
+            
+        }
     }
 }
 
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     
-    /*if ([segue.identifier isEqualToString:@"gameSelect"]) {
-     UINavigationController *navigationController = segue.destinationViewController;
-     SnapGameDetailViewController *controller = (SnapGameDetailViewController *)navigationController.topViewController;
-     controller.delegate = self;
-     controller.gameToShow = gameToShow;
-     }*/
-    
-    if ([[segue identifier] isEqualToString:@"addGameSegue"]) {
+    if ([[segue identifier] isEqualToString:@"addGameSegue"])
+    {
         UINavigationController *navigationController = segue.destinationViewController;
         AddGameViewController *vc = (AddGameViewController*)navigationController.topViewController;
         vc.groupId = self.groupID;
 
         [vc setPlayers:players];
+        [vc setAddGameDelegate:self];
         
     }
-    else if ([[segue identifier] isEqualToString:@"addPlayerSegue"]) {
+    else if ([[segue identifier] isEqualToString:@"addPlayerSegue"])
+    {
         
         AddPlayerViewController *vc = (AddPlayerViewController*)segue.destinationViewController;
         vc.groupID = self.groupID;
         vc.groupName = self.groupName;
+        
+        [vc setAddPlayerDelegate:self];
     }
+}
+
+-(void)newPlayerAdded
+{
+    [self refreshPlayers];
+}
+-(void)newGameAdded:(Game *)newGame
+{
+    [self.games addObject:newGame];
+    [self updateGames];
+}
+
+-(void)gameRemoved
+{
+    NSLog(@"game removed");
+    [self refreshGames];
+    [self refreshPlayers];
 }
 
 #pragma mark - UITabBarControllerDelegate

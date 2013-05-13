@@ -17,4 +17,5 @@
 @property (nonatomic, strong) NSNumber *losses;
 @property (nonatomic, strong) NSNumber *draws;
 @property (nonatomic, strong) NSNumber *WLR;
+@property (nonatomic, strong) NSData *profilePicData;
 @end

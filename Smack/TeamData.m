@@ -21,6 +21,8 @@ static TeamData *myTeamData;
         imageDictionary = [[NSMutableDictionary alloc] init];
         [self initArray];
         [self loadTeamDataFromParse];
+        //gamesForGroup = [[NSMutableArray alloc] init];
+        
     }
     
     return self;
@@ -42,6 +44,29 @@ static TeamData *myTeamData;
 {//used to init the fifa teams
     
 }
+
+//-(void)loadGames:(NSString *)groupID
+//{
+//    [gamesForGroup removeAllObjects];
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"FifaGames"];
+//    [query whereKey:@"GroupId" equalTo:groupID];
+//    NSArray *objects = [query findObjects];
+//    
+//    for (PFObject *obj in objects)
+//    {
+//        Game *tempGame = [[Game alloc] init];
+//        tempGame.player1Id = [obj objectForKey:@"Player1Id"];
+//        tempGame.player1Name = [obj objectForKey:@"Player1Name"];
+//        tempGame.player1Score = [obj objectForKey:@"Player1Score"];
+//        tempGame.player2Id = [obj objectForKey:@"Player2Id"];
+//        tempGame.player2Name = [obj objectForKey:@"Player2Name"];
+//        tempGame.player2Score = [obj objectForKey:@"Player2Score"];
+//        
+//        [gamesForGroup addObject:tempGame];
+//    }
+//
+//}
 -(void)loadTeamDataFromParse
 {
     PFQuery *query = [PFQuery queryWithClassName:@"FifaTeams"];

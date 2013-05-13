@@ -14,7 +14,7 @@
     NSString *selectedName;
     NSMutableArray *fbFriends;
     NSMutableArray *filteredFbFriends;
-
+    BOOL canSave;
 }
 
 @end
@@ -39,6 +39,11 @@
     NSLog(@"groupid %@", self.groupID);
     [self sendRequest];
 
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    canSave = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -147,6 +152,8 @@
         selectedFbId = [[fbFriends objectAtIndex:indexPath.row] valueForKey:@"fbId"];
     }
     
+    canSave = YES;
+    
 }
 
 
@@ -179,6 +186,12 @@
 
 - (IBAction)savePressed:(id)sender
 {
+    if(!canSave)
+    {
+        [SVProgressHUD showErrorWithStatus:@"Please Select a Name"];
+        return;
+    }
+    
     PFObject *playerObject = [PFObject objectWithClassName:@"GroupToUser"];
     [playerObject setObject:selectedName forKey:@"Name"];
     [playerObject setObject:[NSNumber numberWithInt:0] forKey:@"Losses"];
@@ -189,6 +202,9 @@
     [playerObject setObject:selectedFbId forKey:@"fbId"];
     [playerObject setObject:self.groupName forKey:@"GroupName"];
     [playerObject save];
+    
+    [self.addPlayerDelegate newPlayerAdded];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

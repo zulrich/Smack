@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "PlayerCell.h"
 #import "Player.h"
+#import "PlayerInfoViewController.h"
 
 @interface PlayersViewController : UIViewController<UITableViewDataSource, UITableViewDataSource>
 
 @property (nonatomic, strong) NSArray *players;
+@property (nonatomic, strong) NSArray *games;
 @property (strong, nonatomic) IBOutlet UITableView *playersTable;
 
 -(void)reloadView;

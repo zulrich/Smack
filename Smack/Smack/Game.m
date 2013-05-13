@@ -10,7 +10,7 @@
 
 @implementation Game
 
-@dynamic objectId
+@synthesize objectId
 ,player1Id
 ,player1Name
 ,player1Team
