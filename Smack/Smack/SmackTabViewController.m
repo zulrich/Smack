@@ -79,7 +79,7 @@
         }
         self.players = playersTemp;
         [self updatePlayers];
-        NSLog(@"updated players");
+        NSLog(@"Players Refreshed");
     }];
 }
 
@@ -111,7 +111,7 @@
         }
         self.games = [[NSMutableArray alloc] initWithArray:gamesTemp];
         [self updateGames];
-        NSLog(@"updated games");
+        NSLog(@"Games Refreshed");
     }];
 
 }
@@ -192,10 +192,10 @@
 {
     [self refreshPlayers];
 }
--(void)newGameAdded:(Game *)newGame
+-(void)newGameAdded
 {
-    [self.games addObject:newGame];
-    [self updateGames];
+    [self refreshPlayers];
+    [self refreshGames];
 }
 
 -(void)gameRemoved

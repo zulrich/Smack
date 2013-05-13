@@ -87,7 +87,8 @@
     if (selectTeam1) {
         team1Index = theTeamObject.index;
         team1 = theTeamObject;
-        [self.team1Button setTitle:theTeamObject.name forState:UIControlStateNormal];
+        NSString *name = team1.name;
+        [self.team1Button setTitle:name forState:UIControlStateNormal];
         NSLog(@"Name is %@", team1.name);
         UIImage *image =  [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team1.name]];
         [self.player1ImageView setImage:(UIImage *) image];
@@ -96,8 +97,9 @@
         NSLog(@"select t2");
         team2Index = theTeamObject.index;
         team2 = theTeamObject;
-        [self.team2Button setTitle:team2.name forState:UIControlStateNormal];
-        //NSString *name = team2.name;
+        NSString *name = team2.name;
+        [self.team2Button setTitle:name forState:UIControlStateNormal];
+        
         UIImage *image =  [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team2.name]];
         [self.player2ImageView setImage:(UIImage *) image];
     }
@@ -143,18 +145,8 @@
     [self saveGame:^(bool success) {
         if(success) {
             [SVProgressHUD showSuccessWithStatus:@"Great success!"];
-            Game *newGame = [[Game alloc] init];
-            newGame.player1Id = player1.objectId;
-            newGame.player1Name = player1.name;
-            newGame.player1Score = team1Score;
-            newGame.player1Team = team1.name;
-            
-            newGame.player2Id = player2.objectId;
-            newGame.player2Name = player2.name;
-            newGame.player2Score = team2Score;
-            newGame.player2Team = team2.name;
-            
-            [self.addGameDelegate newGameAdded:newGame];
+                        
+            [self.addGameDelegate newGameAdded];
             [self dismissViewControllerAnimated:YES completion:nil];
             NSLog(@"Tables updated");
         }

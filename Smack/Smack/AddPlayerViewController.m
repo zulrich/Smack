@@ -83,7 +83,8 @@
             filteredFbFriends = [NSMutableArray arrayWithCapacity:[fbFriends count]];
             [self sortAtoZ];
 
-            NSLog(@"friends: %@",[fbFriends description]);
+            //NSLog(@"friends: %@",[fbFriends description]);
+            [self.friendsTableView reloadData];
         }
     }];
     
@@ -110,10 +111,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"teamCell";
+    TeamSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[TeamSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...

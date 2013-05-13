@@ -65,7 +65,7 @@
         if(success) {
             [SVProgressHUD showSuccessWithStatus:@"Great success!"];
 
-            [self.gameInfoDelegate gameRemoved];
+            //[self.gameInfoDelegate gameRemoved];
             [self.navigationController popViewControllerAnimated:YES];
             NSLog(@"Tables updated");
         }

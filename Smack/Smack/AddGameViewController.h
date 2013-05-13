@@ -21,7 +21,7 @@
 
 @protocol AddGameDelegate <NSObject>
 
--(void)newGameAdded:(Game *)newGame;
+-(void)newGameAdded;
 
 @end
 

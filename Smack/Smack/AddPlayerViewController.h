@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "SVProgressHUD.h"
 #import "Player.h"
+#import "TeamSelectCell.h"
 
 @class AddPlayerViewController;
 @protocol AddPlayerDelegate <NSObject>
@@ -25,6 +26,7 @@
 - (IBAction)savePressed:(id)sender;
 - (IBAction)cancelPressed:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UITableView *friendsTableView;
 
 
 
