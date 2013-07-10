@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LSB-5l-tFp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LSB-5l-tFp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -167,7 +167,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="iXL-UG-bJb">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="Ai1-vs-nth">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="640" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -806,7 +806,7 @@
                                             <constraint firstItem="FDp-B7-ncm" firstAttribute="top" secondItem="HxF-CA-iwp" secondAttribute="top" type="default" id="Wav-5N-fSd"/>
                                             <constraint firstItem="9P3-Tm-THY" firstAttribute="leading" secondItem="wbx-v6-Ahi" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="YMD-Sz-ITG"/>
                                             <constraint firstAttribute="trailing" secondItem="3bf-3l-13Y" secondAttribute="trailing" constant="10" id="c30-3g-3a0"/>
-                                            <constraint firstItem="oce-nP-q72" firstAttribute="leading" secondItem="p8z-Pu-f27" secondAttribute="leading" constant="10" id="dAl-HB-H67"/>
+                                            <constraint firstItem="oce-nP-q72" firstAttribute="leading" secondItem="p8z-Pu-f27" secondAttribute="leading" type="default" id="hrz-Eh-gLV"/>
                                             <constraint firstItem="HxF-CA-iwp" firstAttribute="top" secondItem="p8z-Pu-f27" secondAttribute="top" constant="10" id="otn-Rh-6CU"/>
                                             <constraint firstItem="HxF-CA-iwp" firstAttribute="bottom" secondItem="FDp-B7-ncm" secondAttribute="bottom" type="default" id="ts3-TE-9b0"/>
                                             <constraint firstItem="9P3-Tm-THY" firstAttribute="top" secondItem="koj-iV-h5K" secondAttribute="top" type="default" id="zPN-uH-JCc"/>
@@ -1021,7 +1021,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lla-lX-dkw">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lla-lX-dkw">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="26" id="ud2-UD-V7l"/>
                                                     </constraints>
@@ -1031,13 +1031,13 @@
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boK-pC-wOx">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="10" id="8jF-93-4cY"/>
+                                                        <constraint firstAttribute="width" constant="12" id="mUO-Wv-bzV"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOm-GO-Hka">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOm-GO-Hka">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="42" id="R9y-b9-fm7"/>
                                                     </constraints>
@@ -1055,6 +1055,7 @@
                                             <constraint firstItem="Lla-lX-dkw" firstAttribute="top" secondItem="boK-pC-wOx" secondAttribute="top" type="default" id="CZ2-K8-rFC"/>
                                             <constraint firstItem="d8f-dW-med" firstAttribute="leading" secondItem="1P1-jt-xha" secondAttribute="leading" constant="58" id="G7J-Um-EiU"/>
                                             <constraint firstItem="pPT-Zc-shf" firstAttribute="top" secondItem="1P1-jt-xha" secondAttribute="top" constant="-7" id="Gpy-R0-vDZ"/>
+                                            <constraint firstItem="boK-pC-wOx" firstAttribute="leading" secondItem="Lla-lX-dkw" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="HFX-js-jBH"/>
                                             <constraint firstItem="d8f-dW-med" firstAttribute="baseline" secondItem="J7G-Wy-6A3" secondAttribute="baseline" type="default" id="HUY-CU-Eku"/>
                                             <constraint firstItem="dpH-NW-tsT" firstAttribute="baseline" secondItem="J7G-Wy-6A3" secondAttribute="baseline" type="default" id="Hkr-On-qV3"/>
                                             <constraint firstItem="FeP-J3-uWN" firstAttribute="leading" secondItem="1P1-jt-xha" secondAttribute="leading" constant="10" id="P6S-3N-Wtn"/>
@@ -1065,7 +1066,6 @@
                                             <constraint firstItem="boK-pC-wOx" firstAttribute="top" secondItem="jOm-GO-Hka" secondAttribute="top" type="default" id="WY1-pA-eAt"/>
                                             <constraint firstAttribute="trailing" secondItem="dpH-NW-tsT" secondAttribute="trailing" constant="111" id="XJM-5D-YNM"/>
                                             <constraint firstItem="FeP-J3-uWN" firstAttribute="top" secondItem="1P1-jt-xha" secondAttribute="top" constant="11" id="YOa-iu-o8c"/>
-                                            <constraint firstAttribute="trailing" secondItem="boK-pC-wOx" secondAttribute="trailing" constant="72" id="Ymp-ac-dUH"/>
                                             <constraint firstItem="dpH-NW-tsT" firstAttribute="top" secondItem="Lla-lX-dkw" secondAttribute="top" type="default" id="Zrc-4r-k7L"/>
                                             <constraint firstItem="jOm-GO-Hka" firstAttribute="leading" secondItem="Lla-lX-dkw" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="dTe-I9-DVa"/>
                                             <constraint firstItem="Lla-lX-dkw" firstAttribute="baseline" secondItem="dpH-NW-tsT" secondAttribute="baseline" type="default" id="rPA-uG-ebM"/>
