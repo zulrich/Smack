@@ -21,6 +21,8 @@
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [PFFacebookUtils initializeFacebook];
+    
+    //[[UIApplication sharedApplication] setStatusBarHidden:YES];
 
     
     return YES;
