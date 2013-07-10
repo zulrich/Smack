@@ -28,12 +28,8 @@
     [super viewDidLoad];
     
     Team *team1 = [[TeamData FifaTeams] getTeamAtIndex:[self.selectedGame.team1Index intValue]];
-    self.player1Image.image = [UIImage imageNamed:team1.logoName];
-    //[UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team1.teamName]];
-    
+    self.player1Image.image = [UIImage imageNamed:team1.logoName];    
     Team *team2 = [[TeamData FifaTeams] getTeamAtIndex:[self.selectedGame.team2Index intValue]];
-    
-    //self.player2Image.image = [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team2.teamName]];
     
     self.player2Image.image = [UIImage imageNamed:team2.logoName];
 
@@ -49,8 +45,8 @@
     
     if([[[PFUser currentUser] objectForKey:@"fbId"] isEqualToString: self.selectedGame.gameOwnerFbId])
     {
-        
-        self.deleteGameButton.hidden = NO;
+        //put back in to allow delete
+        //self.deleteGameButton.hidden = NO;
     }
     
 }

@@ -28,10 +28,10 @@
 - (id)getTeamAtIndex:(NSUInteger)index;
 -(NSMutableArray *)getCopyTeamData;
 -(NSUInteger)teamInfoCount;
--(NSString *)getTeamImageName:(NSString *)teamName;
+//-(NSString *)getTeamImageName:(NSString *)teamName;
 
 
--(NSMutableArray *)getGames;
+//-(NSMutableArray *)getGames;
 +(TeamData *)FifaTeams;
 
 @end

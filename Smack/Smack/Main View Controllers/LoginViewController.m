@@ -52,6 +52,12 @@
                 NSLog(@"Uh oh. The user cancelled the Facebook login.");
             } else {
                 NSLog(@"Uh oh. An error occurred: %@", error);
+                if(error.code == 2)
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No internet connections" message:@"Please make sure you have wifi or data connection" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+                    [alert show];
+                    //[SVProgressHUD showErrorWithStatus:@"No internet connection \n Please make sure you have wifi or service"];
+                }
             }
         } else if (user.isNew) {
             NSLog(@"User with facebook signed up and logged in!");

@@ -25,13 +25,16 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    groups = [[NSMutableArray alloc] init];
+    
+    [groups removeAllObjects];
+    self.tableView.userInteractionEnabled = NO;
     [self getGroups];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    groups = [[NSMutableArray alloc] init];
     
     FBRequest *request = [FBRequest requestForMe];
     [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
@@ -64,6 +67,7 @@
 
 -(void) getGroups
 {
+    [SVProgressHUD showWithStatus:@"Loading Groups"];
     PFQuery *query = [PFQuery queryWithClassName:@"GroupToUser"];
     [query whereKey:@"fbId" equalTo:[[PFUser currentUser] objectForKey:@"fbId"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -84,6 +88,8 @@
         }
         
         [self.tableView reloadData];
+        self.tableView.userInteractionEnabled = YES;
+        [SVProgressHUD showSuccessWithStatus:@"Done Enjoy"];
 
     }];
 
@@ -125,6 +131,7 @@
         
         // Pass the information to your destination view
         NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+        NSLog(@"Selected Row index %d ", selectedRowIndex.row);
         Group *selectedGroup = [groups objectAtIndex:selectedRowIndex.row];
         smackVC.groupID = selectedGroup.groupID;
         smackVC.groupName = selectedGroup.groupName;

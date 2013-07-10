@@ -2939,6 +2939,8 @@
 		A4D8D919173D7F07005EE8A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: zack ulrich (9AQK86HGFB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zack ulrich (9AQK86HGFB)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2949,6 +2951,8 @@
 				GCC_PREFIX_HEADER = "Smack/Smack-Prefix.pch";
 				INFOPLIST_FILE = "Smack/Smack-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "B0F9323E-58C5-431D-916B-7DE75244BED1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C3479008-F988-4A9E-AD31-364B7C435FAD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2956,6 +2960,8 @@
 		A4D8D91A173D7F07005EE8A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: zack ulrich (9AQK86HGFB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zack ulrich (9AQK86HGFB)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2970,6 +2976,8 @@
 				GCC_PREFIX_HEADER = "Smack/Smack-Prefix.pch";
 				INFOPLIST_FILE = "Smack/Smack-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "B0F9323E-58C5-431D-916B-7DE75244BED1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B0F9323E-58C5-431D-916B-7DE75244BED1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

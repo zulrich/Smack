@@ -155,6 +155,8 @@
     
     canSave = YES;
     
+    [self savePressed:nil];
+    
 }
 
 
