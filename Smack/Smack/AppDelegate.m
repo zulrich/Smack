@@ -42,6 +42,9 @@
     
     //[[UIButton appearance] setBackgroundImage:gradImage forBarMetrics:UIBarMetricsDefault];
     
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:1.0/255.0 green:30.0/255.0 blue:65.0/255.0 alpha:1.0]];
+    
     [[UIStepper appearance] setTintColor:[UIColor colorWithRed:1.0/255.0 green:30.0/255.0 blue:65.0/255.0 alpha:1.0]];
     [[UIStepper appearance] setIncrementImage:[UIImage imageNamed:@"up"] forState:UIControlStateNormal];
     [[UIStepper appearance] setDecrementImage:[UIImage imageNamed:@"down"] forState:UIControlStateNormal];

@@ -70,7 +70,14 @@
                                              forKey:@"fbId"];
                     [[PFUser currentUser] setObject:[result objectForKey:@"name"]
                                              forKey:@"Name"];
-                    [[PFUser currentUser] save];
+                    
+                    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+                    
+                    dispatch_async(queue, ^{
+                        
+                        [[PFUser currentUser] save];
+                    });
+                    
                 }
             }];
             
@@ -89,7 +96,12 @@
                                              forKey:@"fbId"];
                     [[PFUser currentUser] setObject:[result objectForKey:@"name"]
                                              forKey:@"Name"];
-                    [[PFUser currentUser] save];
+                    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+                    
+                    dispatch_async(queue, ^{
+                        
+                        [[PFUser currentUser] save];
+                    });
                 }
             }];
             [self performSegueWithIdentifier:@"LoginSegue" sender:self];

@@ -37,7 +37,7 @@
     [self refreshGames];
     [self refreshPlayers];
     
-    
+    self.navigationItem.title = self.groupName;
 
 	// Do any additional setup after loading the view.
 }
@@ -232,12 +232,11 @@
         self.navigationItem.rightBarButtonItem = button;
     }
     
-        
-//    }
-//    else if([viewController isKindOfClass:[LeaderboardViewController class]])
-//    {
-//        self.navigationItem.rightBarButtonItem = nil;
-//    }
+
+    else if([viewController isKindOfClass:[LeaderboardViewController class]])
+    {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
 }
 
 @end

@@ -31,6 +31,7 @@
 {
     [super viewDidLoad];
     [self.groupTextField becomeFirstResponder];
+    
 	// Do any additional setup after loading the view.
 }
 
