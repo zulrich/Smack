@@ -7,6 +7,7 @@
 //
 
 #import "AddGameViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AddGameViewController ()
 {
@@ -59,7 +60,20 @@
     
     team1Score = [[NSNumber alloc] initWithInt:0];
     team2Score = [[NSNumber alloc] initWithInt:0];
+    [self.player1Button setBackgroundColor:[UIColor colorWithRed:1.0/255.0f green:30.0/255.0f blue:65.0/255.0f alpha:1]];
+    self.player1Button.layer.cornerRadius = 10.0f;
+    
+    [self.player2Button setBackgroundColor:[UIColor colorWithRed:1.0/255.0f green:30.0/255.0f blue:65.0/255.0f alpha:1]];
+    self.player2Button.layer.cornerRadius = 10.0f;
 
+    [self.team1Button setBackgroundColor:[UIColor colorWithRed:1.0/255.0f green:30.0/255.0f blue:65.0/255.0f alpha:1]];
+    self.team1Button.layer.cornerRadius = 10.0f;
+    
+    [self.team2Button setBackgroundColor:[UIColor colorWithRed:1.0/255.0f green:30.0/255.0f blue:65.0/255.0f alpha:1]];
+    self.team2Button.layer.cornerRadius = 10.0f;
+
+
+    
     
 }
 
@@ -239,7 +253,12 @@
             NSNumber *wlr = [NSNumber numberWithFloat:([wins floatValue]/[losses floatValue])];
             [player setValue:wlr forKey:@"WLR"];
             NSLog(@"%@",[wlr stringValue]);
-            [player save];
+            
+            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            dispatch_async(queue, ^{
+                [player save];
+                
+            });
             player1Updated = YES;
             if(player2Updated && gameDataSaved) {
                 block(YES);
@@ -286,7 +305,12 @@
             NSNumber *wlr = [NSNumber numberWithFloat:([wins floatValue]/[losses floatValue])];
             [player setValue:wlr forKey:@"WLR"];
             NSLog(@"%@",[wlr stringValue]);
-            [player save];
+            
+            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            dispatch_async(queue, ^{
+                [player save];
+
+            });
             player2Updated = YES;
             if(player1Updated && gameDataSaved){
                 block(YES);

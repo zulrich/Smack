@@ -1,15 +1,14 @@
 //
-//  GameSelectCell.m
-//  FifaSmack
+//  GroupCell.m
+//  Smack
 //
-//  Created by Tarrence Van As on 9/11/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Zack Ulrich on 7/26/13.
+//  Copyright (c) 2013 Zack Ulrich. All rights reserved.
 //
 
-#import "TeamSelectCell.h"
+#import "GroupCell.h"
 
-@implementation TeamSelectCell
-@synthesize nameLabel;
+@implementation GroupCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

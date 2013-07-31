@@ -61,24 +61,33 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)saveCallback:(NSNumber *)result error:(NSError *)error {
-    if (!error) {
-        // The groupObject saved successfully.
-        NSLog(@"oid %@",[groupObject objectId]);
-        PFObject *groupToPlayer =  [PFObject objectWithClassName:@"GroupToUser"];
-        [groupToPlayer setObject:[groupObject objectId] forKey:@"GroupId"];
-        NSLog(@"fbid: %@", [[[PFUser currentUser] objectForKey:@"fbId"] description ]);
-        [groupToPlayer setObject:[[PFUser currentUser] objectForKey:@"fbId"] forKey:@"fbId"];
-        [groupToPlayer setObject:[[PFUser currentUser] objectForKey:@"Name"] forKey:@"Name"];
-        [groupToPlayer setObject:[NSNumber numberWithInt:0] forKey:@"Wins"];
-        [groupToPlayer setObject:[NSNumber numberWithInt:0] forKey:@"Losses"];
-        [groupToPlayer setObject:[NSNumber numberWithInt:0] forKey:@"Draws"];
-        [groupToPlayer setObject:[NSNumber numberWithInt:0] forKey:@"WLR"];
-        [groupToPlayer setObject:self.groupTextField.text forKey:@"GroupName"];
-        [groupToPlayer save];
-    } else {
-        // There was an error saving the groupObject.
-    }
+- (void)saveCallback:(NSNumber *)result error:(NSError *)error
+{
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(queue, ^
+    {
+        if (!error) {
+            // The groupObject saved successfully.
+            NSLog(@"oid %@",[groupObject objectId]);
+            PFObject *groupToPlayer =  [PFObject objectWithClassName:@"GroupToUser"];
+            [groupToPlayer setObject:[groupObject objectId] forKey:@"GroupId"];
+            NSLog(@"fbid: %@", [[[PFUser currentUser] objectForKey:@"fbId"] description ]);
+            [groupToPlayer setObject:[[PFUser currentUser] objectForKey:@"fbId"] forKey:@"fbId"];
+            [groupToPlayer setObject:[[PFUser currentUser] objectForKey:@"Name"] forKey:@"Name"];
+            [groupToPlayer setObject:[NSNumber numberWithInt:0] forKey:@"Wins"];
+            [groupToPlayer setObject:[NSNumber numberWithInt:0] forKey:@"Losses"];
+            [groupToPlayer setObject:[NSNumber numberWithInt:0] forKey:@"Draws"];
+            [groupToPlayer setObject:[NSNumber numberWithInt:0] forKey:@"WLR"];
+            [groupToPlayer setObject:self.groupTextField.text forKey:@"GroupName"];
+            [groupToPlayer save];
+        } else {
+            // There was an error saving the groupObject.
+        }
+    });
+    
+
 }
 
 @end

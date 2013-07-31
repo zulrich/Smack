@@ -111,10 +111,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    static NSString *CellIdentifier = @"teamCell";
-    TeamSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"playerCell";
+    PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[TeamSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[PlayerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
@@ -195,18 +195,25 @@
         return;
     }
     
-    PFObject *playerObject = [PFObject objectWithClassName:@"GroupToUser"];
-    [playerObject setObject:selectedName forKey:@"Name"];
-    [playerObject setObject:[NSNumber numberWithInt:0] forKey:@"Losses"];
-    [playerObject setObject:[NSNumber numberWithInt:0] forKey:@"Wins"];
-    [playerObject setObject:[NSNumber numberWithInt:0] forKey:@"Draws"];
-    [playerObject setObject:[NSNumber numberWithInt:0] forKey:@"WLR"];
-    [playerObject setObject:self.groupID forKey:@"GroupId"];
-    [playerObject setObject:selectedFbId forKey:@"fbId"];
-    [playerObject setObject:self.groupName forKey:@"GroupName"];
-    [playerObject save];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
-    [self.addPlayerDelegate newPlayerAdded];
+    dispatch_async(queue, ^{
+        
+        PFObject *playerObject = [PFObject objectWithClassName:@"GroupToUser"];
+        [playerObject setObject:selectedName forKey:@"Name"];
+        [playerObject setObject:[NSNumber numberWithInt:0] forKey:@"Losses"];
+        [playerObject setObject:[NSNumber numberWithInt:0] forKey:@"Wins"];
+        [playerObject setObject:[NSNumber numberWithInt:0] forKey:@"Draws"];
+        [playerObject setObject:[NSNumber numberWithInt:0] forKey:@"WLR"];
+        [playerObject setObject:self.groupID forKey:@"GroupId"];
+        [playerObject setObject:selectedFbId forKey:@"fbId"];
+        [playerObject setObject:self.groupName forKey:@"GroupName"];
+        [playerObject save];
+        
+        [self.addPlayerDelegate newPlayerAdded];
+    });
+    
+    
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

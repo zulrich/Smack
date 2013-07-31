@@ -16,6 +16,8 @@
 {
     // Override point for customization after application launch.
     
+    [self customizeAppearence];
+    
     [Parse setApplicationId:@"p5deORQj2iTD6KOZouQhCLTMq8QJZ7bTLxgqR80s"
                   clientKey:@"oCRac0xNjuHW4tjzgdv1DwvGcG3ZNA9BiLynm3fq"];
     
@@ -23,9 +25,27 @@
     [PFFacebookUtils initializeFacebook];
     
     //[[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
+   
 
     
     return YES;
+}
+
+-(void)customizeAppearence
+{
+    UIImage *gradImage = [[UIImage imageNamed:@"blue_gray_gradient_44"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    
+    [[UINavigationBar appearance] setBackgroundImage:gradImage forBarMetrics:UIBarMetricsDefault];
+    
+    //[[UISearchBar appearance] setBackgroundImage:gradImage forBarMetrics:UIBarMetricsDefault];
+    
+    //[[UIButton appearance] setBackgroundImage:gradImage forBarMetrics:UIBarMetricsDefault];
+    
+    [[UIStepper appearance] setTintColor:[UIColor colorWithRed:1.0/255.0 green:30.0/255.0 blue:65.0/255.0 alpha:1.0]];
+    [[UIStepper appearance] setIncrementImage:[UIImage imageNamed:@"up"] forState:UIControlStateNormal];
+    [[UIStepper appearance] setDecrementImage:[UIImage imageNamed:@"down"] forState:UIControlStateNormal];
+        
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url

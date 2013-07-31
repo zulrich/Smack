@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "SVProgressHUD.h"
 #import "Player.h"
-#import "TeamSelectCell.h"
+#import "PlayerCell.h"
 
 @class AddPlayerViewController;
 @protocol AddPlayerDelegate <NSObject>

@@ -12,9 +12,7 @@
 #import "SmackTabViewController.h"
 
 @interface GroupsViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
-{
-    NSMutableArray *groups;
-}
+
 
 - (IBAction)logoutRequested:(id)sender;
 

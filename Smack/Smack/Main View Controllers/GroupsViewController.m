@@ -7,12 +7,19 @@
 //
 
 #import "GroupsViewController.h"
+#import "GroupCell.h"
+
 
 @interface GroupsViewController ()
+
+@property (nonatomic, strong) NSMutableArray *groups;
 
 @end
 
 @implementation GroupsViewController
+
+@synthesize groups;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -25,8 +32,8 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    
-    [groups removeAllObjects];
+    [super viewDidAppear:animated];
+
     self.tableView.userInteractionEnabled = NO;
     [self getGroups];
 }
@@ -34,6 +41,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
+                                        init];
+    //refreshControl.tintColor = [UIColor magentaColor];
+    [refreshControl addTarget:self action:@selector(refreshGroups) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+    
     groups = [[NSMutableArray alloc] init];
     
     FBRequest *request = [FBRequest requestForMe];
@@ -56,7 +70,14 @@
         
 
     }];
+    
+}
 
+-(void) refreshGroups
+{
+    
+    [self getGroups];
+    [self.refreshControl endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,12 +88,15 @@
 
 -(void) getGroups
 {
+    
     [SVProgressHUD showWithStatus:@"Loading Groups"];
     PFQuery *query = [PFQuery queryWithClassName:@"GroupToUser"];
     [query whereKey:@"fbId" equalTo:[[PFUser currentUser] objectForKey:@"fbId"]];
+    [query orderByAscending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error)
         {
+            [groups removeAllObjects];
             // The find succeeded.
             NSLog(@"Successfully retrieved %d groups.", objects.count);
             for(PFObject *groupToUserObject in objects)
@@ -87,11 +111,13 @@
             NSLog(@"Error here: %@ %@", error, [error userInfo]);
         }
         
-        [self.tableView reloadData];
         self.tableView.userInteractionEnabled = YES;
+        [self.tableView reloadData];
         [SVProgressHUD showSuccessWithStatus:@"Done Enjoy"];
 
     }];
+    
+    
 
 }
 
@@ -105,11 +131,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"GroupCell";
+    GroupCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Group *group = [groups objectAtIndex:indexPath.row];
-    cell.textLabel.text = group.groupName;
+    cell.groupLabel.text = group.groupName;
         
     return cell;
 }
