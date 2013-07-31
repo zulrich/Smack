@@ -111,10 +111,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    static NSString *CellIdentifier = @"teamCell";
-    TeamSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"playerCell";
+    PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[TeamSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[PlayerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
@@ -128,9 +128,9 @@
 	{
         name = [[fbFriends objectAtIndex:[indexPath row]] valueForKey:@"name"];
     }
-    
     cell.textLabel.text = name;
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    //cell.nameLabel.text = name;
+    //cell.accessoryType = UITableViewCellAccessoryNone;
     
     return cell;
     

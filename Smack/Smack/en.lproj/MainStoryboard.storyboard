@@ -757,7 +757,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uX3-N7-7cm">
                                 <rect key="frame" x="-3" y="44" width="326" height="504"/>
-                                <color key="backgroundColor" red="0.77647058820000003" green="0.73725490199999999" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="yDw-kD-uIM">
                                     <rect key="frame" x="0.0" y="0.0" width="326" height="44"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
@@ -772,20 +772,8 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="326" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add player name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tpg-gW-Tzv">
-                                                    <rect key="frame" x="20" y="11" width="286" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <connections>
-                                            <outlet property="nameLabel" destination="tpg-gW-Tzv" id="vpj-Nd-a0s"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
