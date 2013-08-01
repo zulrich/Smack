@@ -122,9 +122,10 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5Kl-Qb-Oya">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5Kl-Qb-Oya">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="playerCell" id="jlA-f8-34K" customClass="PlayerSelectCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -153,7 +154,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="cjk-Zn-dYT"/>
                     <connections>
@@ -174,7 +175,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iXL-UG-bJb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                                <color key="backgroundColor" red="0.77647058820000003" green="0.73725490199999999" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="Ai1-vs-nth">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -211,7 +213,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Select Team" id="CKa-9R-Rw4"/>
                     <connections>
@@ -233,32 +235,6 @@
             </objects>
             <point key="canvasLocation" x="472" y="1359"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Xde-W2-B6z">
-            <objects>
-                <viewController wantsFullScreenLayout="YES" id="JNT-W8-eFl" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="L7A-t5-dw9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SMACK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AOQ-9R-KO6">
-                                <rect key="frame" x="20" y="184" width="280" height="93"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="76"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.2327954592538054" green="0.63171177888423213" blue="0.86595184948979598" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="00n-Ar-ZyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1723" y="1381"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="fla-9D-aV5">
             <objects>
@@ -274,7 +250,7 @@
             </objects>
             <point key="canvasLocation" x="-450" y="641"/>
         </scene>
-        <!--Add Game View Controller - Title-->
+        <!--Add Game View Controller - New Game-->
         <scene sceneID="RIC-R7-rAU">
             <objects>
                 <viewController id="QEH-bt-riK" customClass="AddGameViewController" sceneMemberID="viewController">
@@ -386,7 +362,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="92R-iM-Nzg">
+                    <navigationItem key="navigationItem" title="New Game" id="92R-iM-Nzg">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tbW-l2-gzc">
                             <connections>
                                 <action selector="cancelPressed:" destination="QEH-bt-riK" id="oqb-mp-RK7"/>
@@ -755,7 +731,6 @@
         <!--Add Player View Controller-->
         <scene sceneID="pam-6s-305">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cdn-NV-aFe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="zoZ-w0-lYG" customClass="AddPlayerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c8C-X5-Ys1">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
@@ -763,6 +738,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uX3-N7-7cm">
                                 <rect key="frame" x="-3" y="44" width="326" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="yDw-kD-uIM">
                                     <rect key="frame" x="0.0" y="0.0" width="326" height="44"/>
@@ -789,8 +765,9 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" id="v7M-9p-TKl">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="hfN-zB-Bpr">
+                                    <navigationItem id="hfN-zB-Bpr">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Eh9-cg-gZ6">
                                             <connections>
                                                 <action selector="cancelPressed:" destination="zoZ-w0-lYG" id="pQZ-MZ-eQ5"/>
@@ -812,6 +789,7 @@
                         <outlet property="searchDisplayController" destination="cVi-FZ-dhN" id="y3n-xr-aTM"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cdn-NV-aFe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="cVi-FZ-dhN">
                     <connections>
                         <outlet property="delegate" destination="zoZ-w0-lYG" id="MpF-o1-HPk"/>

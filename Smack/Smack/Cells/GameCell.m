@@ -7,6 +7,7 @@
 //
 
 #import "GameCell.h"
+#import "TeamData.h"
 
 @implementation GameCell
 @synthesize team2Image;
@@ -19,13 +20,7 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    //if (self) {
-        // Initialization code
-        /*UIImageView *team1Icon = [[UIImageView alloc] initWithFrame:CGRectMake(40, 10, 45, 45)];
-        team1Icon.image = [UIImage imageNamed:@"manSmall.png"];
-        NSLog(@"in cell");
-        [self addSubview:team1Icon];*/
-    //}
+
     return self;
 }
 
@@ -44,6 +39,37 @@
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:image];
     self.backgroundView = backgroundImageView;
 }
+
+-(void) configureCell:(Game *)game
+{
+    self.player1Name.text = game.player1Name;
+    self.player2Name.text = game.player2Name;
+    self.player1Score.text = [game.player1Score stringValue];
+    self.player2Score.text = [game.player2Score stringValue];
+    
+    dispatch_queue_t queue =dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(queue, ^{
+       
+                
+        NSString *teamName = [[TeamData FifaTeams] getTeamName:[game.team1Index intValue]];
+        
+        UIImage *image1 =  [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:teamName]];
+        teamName = [[TeamData FifaTeams] getTeamName:[game.team2Index intValue]];
+        
+        UIImage *image2 =  [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:teamName]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.team1Image.image = image1;
+            self.team2Image.image = image2;
+            ;
+        });
+        
+    });
+    
+    
+}
+
 
 
 @end

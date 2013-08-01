@@ -69,24 +69,10 @@
         cell = [[GameCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     // Configure the cell...
+    
     Game *game = [self.games objectAtIndex: [indexPath row]];
-    cell.player1Name.text = game.player1Name;
-    cell.player1Score.text = [game.player1Score stringValue];
-    cell.player2Name.text = game.player2Name;
-    cell.player2Score.text = [game.player2Score stringValue];
     
-    Team *team1 = [[TeamData FifaTeams] getTeamAtIndex:[game.team1Index intValue]];
-    
-    cell.team1Image.image = [UIImage imageNamed:team1.logoName];
-    
-    //UIImage *image1 = [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team1.teamName]];
-    //[cell.team1Image setImage:(UIImage *) image1];
-    
-    Team *team2 = [[TeamData FifaTeams] getTeamAtIndex:[game.team2Index intValue]];
-    cell.team2Image.image = [UIImage imageNamed:team2.logoName];
-    
-    //UIImage *image2 = [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team2.teamName]];
-    //[cell.team2Image setImage:(UIImage *) image2];
+    [cell configureCell:game];
     
     return cell;
 }

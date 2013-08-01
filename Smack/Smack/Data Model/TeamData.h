@@ -12,16 +12,13 @@
 
 @interface TeamData : NSObject{
     
-    NSMutableArray *images;
     NSMutableDictionary *imageDictionary;
     NSMutableArray *teamInfo;
-    NSMutableDictionary *teamDictionary;
-  //  NSMutableArray *gamesForGroup;
     
     
 }
 
--(Team *) getTeamEntry:(NSString *)teamName;
+-(NSString *) getTeamName:(NSUInteger)teamIndex;
 
 -(NSData *)getImageForTeamName:(NSString *)name;
 -(void) startLoading;

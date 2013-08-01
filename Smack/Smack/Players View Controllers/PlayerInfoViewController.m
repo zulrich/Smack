@@ -67,21 +67,9 @@
     }
     // Configure the cell...
     Game *game = [usersGames objectAtIndex: [indexPath row]];
-    cell.player1Name.text = game.player1Name;
-    cell.player1Score.text = [game.player1Score stringValue];
-    cell.player2Name.text = game.player2Name;
-    cell.player2Score.text = [game.player2Score stringValue];
     
-    Team *team1 = [[TeamData FifaTeams] getTeamAtIndex:[game.team1Index intValue]];
-    cell.team1Image.image = [UIImage imageNamed:team1.logoName];
+    [cell configureCell:game];
     
-    NSLog(@"image name: %@", team1.logoName);
-    
-    Team *team2 = [[TeamData FifaTeams] getTeamAtIndex:[game.team2Index intValue]];
-    //UIImage *image2 = [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team2.teamName]];
-    //[cell.team2Image setImage:(UIImage *) image2];
-    
-    cell.team2Image.image = [UIImage imageNamed:team2.logoName];
     return cell;
 }
 

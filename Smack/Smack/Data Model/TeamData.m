@@ -19,7 +19,6 @@ static TeamData *myTeamData;
     if(self == [super init])
     {
         imageDictionary = [[NSMutableDictionary alloc] init];
-        teamDictionary = [[NSMutableDictionary alloc] init];
         teamInfo = [[NSMutableArray alloc] init];
         //[self initArray];
         [self loadTeamDataFromParse];
@@ -38,14 +37,50 @@ static TeamData *myTeamData;
     return myTeamData;
 }
 
+
+
+-(void)retrieveImageFromParse:(NSString *)teamName
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"FifaTeams"];
+    query.cachePolicy = kPFCachePolicyCacheElseNetwork;
+    query.limit = 556;
+    NSLog(@"IN cache %d", [query hasCachedResult]);
+    [query whereKey:@"name" equalTo:teamName];
+    
+    
+        PFObject *obj = [query getFirstObject];
+        if(obj!= nil)
+        {
+            PFFile *theFile = [obj objectForKey:@"logo"];
+            NSData *imageData = [theFile getData];
+            if(imageData != nil)
+            {
+                [imageDictionary setObject:imageData forKey:teamName];
+            }
+        }
+
+    
+}
+    
 -(NSData *)getImageForTeamName:(NSString *)name
 {
+    
+    if (![imageDictionary objectForKey:name])
+    {
+        
+        [self retrieveImageFromParse:name];
+        
+    }
+    
     return [imageDictionary objectForKey:name];
+    
+        
 }
 
--(Team *) getTeamEntry:(NSString *)teamName
+-(NSString *) getTeamName:(NSUInteger)teamIndex;
 {
-    return [teamDictionary objectForKey:teamName];
+    Team *team = [teamInfo objectAtIndex:teamIndex];
+    return team.teamName;
 }
 
 -(NSUInteger)teamInfoCount
@@ -67,28 +102,6 @@ static TeamData *myTeamData;
     
 }
 
-//-(void)loadGames:(NSString *)groupID
-//{
-//    [gamesForGroup removeAllObjects];
-//    
-//    PFQuery *query = [PFQuery queryWithClassName:@"FifaGames"];
-//    [query whereKey:@"GroupId" equalTo:groupID];
-//    NSArray *objects = [query findObjects];
-//    
-//    for (PFObject *obj in objects)
-//    {
-//        Game *tempGame = [[Game alloc] init];
-//        tempGame.player1Id = [obj objectForKey:@"Player1Id"];
-//        tempGame.player1Name = [obj objectForKey:@"Player1Name"];
-//        tempGame.player1Score = [obj objectForKey:@"Player1Score"];
-//        tempGame.player2Id = [obj objectForKey:@"Player2Id"];
-//        tempGame.player2Name = [obj objectForKey:@"Player2Name"];
-//        tempGame.player2Score = [obj objectForKey:@"Player2Score"];
-//        
-//        [gamesForGroup addObject:tempGame];
-//    }
-//
-//}
 -(void)loadTeamDataFromParse
 {
     PFQuery *query = [PFQuery queryWithClassName:@"FifaTeams"];
@@ -97,6 +110,7 @@ static TeamData *myTeamData;
     query.limit = 556;
     NSLog(@"IN cache %d", [query hasCachedResult]);
     [SVProgressHUD showWithStatus:@"Loading Team Data"];
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if (!error)
@@ -121,16 +135,6 @@ static TeamData *myTeamData;
                     
                     [teamInfo addObject:newTeam];
                     
-                    //[teamDictionary setObject:newTeam forKey:teamName];
-                    
-                    
-//                    PFFile *theFile = [obj objectForKey:@"logo"];
-//                    NSData *imageData = [theFile getData];
-//                    if(imageData != nil)
-//                    {
-////                        NSLog(@"Added name: %@ , at index: %d", imageName, i);
-//                        [imageDictionary setObject:imageData forKey:imageName];
-//                    }
                 }
                 
             }
@@ -142,6 +146,7 @@ static TeamData *myTeamData;
             [SVProgressHUD showErrorWithStatus:@"Team Images Load Error"];
         }
         [self sortAtoZ];
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
         [SVProgressHUD showSuccessWithStatus:@"Done Enjoy"];
         
     }];

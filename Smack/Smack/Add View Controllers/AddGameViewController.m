@@ -104,9 +104,19 @@
         NSString *name = team1.teamName;
         [self.team1Button setTitle:name forState:UIControlStateNormal];
         NSLog(@"Name is %@", team1.teamName);
-        //UIImage *image =  [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team1.teamName]];
-        self.player1ImageView.image = [UIImage imageNamed:team1.logoName];
-        //[self.player1ImageView setImage:(UIImage *) image];
+    
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        
+        dispatch_async(queue, ^{
+            UIImage *image =  [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team1.teamName]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.player1ImageView.image = image;        
+            });
+        });
+        
+        
+        
     }
     else if (selectTeam2) {
         NSLog(@"select t2");
@@ -115,7 +125,16 @@
         NSString *name = team2.teamName;
         [self.team2Button setTitle:name forState:UIControlStateNormal];
         
-        self.player2ImageView.image = [UIImage imageNamed:team2.logoName];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        
+        dispatch_async(queue, ^{
+            UIImage *image =  [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team2.teamName]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.player2ImageView.image = image;
+            });
+        });
+
         
         //UIImage *image =  [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team2.teamName]];
         //[self.player2ImageView setImage:(UIImage *) image];
