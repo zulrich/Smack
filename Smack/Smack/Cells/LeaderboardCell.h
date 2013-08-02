@@ -1,9 +1,9 @@
 //
-//  LeaderboardCell.h
-//  FifaSmack
+//  LeaderboarCell.h
+//  Smack
 //
-//  Created by Andrew Drozdov on 9/6/12.
-//
+//  Created by Zack Ulrich on 7/26/13.
+//  Copyright (c) 2013 Zack Ulrich. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

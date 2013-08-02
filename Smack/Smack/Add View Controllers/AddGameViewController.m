@@ -362,31 +362,31 @@
     [player2ScoreLabel setText:[NSString stringWithFormat:@"%d", scoreValue]];
     team2Score = [NSNumber numberWithInt:scoreValue];
 }
-
--(void) loadImagesToParse
-{
-    for (int i = 0; i < [[TeamData FifaTeams] teamInfoCount]; i++)
-    {
-        
-        Team *team = [[TeamData FifaTeams] getTeamAtIndex:i];
-        
-        NSLog(@"team name is %@", team.teamName);
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"FifaTeams"];
-        [query whereKey:@"name" equalTo:team.teamName];
-        PFObject *player = [query getFirstObject];
-        NSLog(@"teamName %@", team.teamName);
-        UIImage *image = [UIImage imageNamed:team.logoName];
-        NSData *imageData = UIImagePNGRepresentation(image);
-        
-        PFFile *imageFile = [PFFile fileWithName:team.logoName data:imageData];
-        [player setObject:imageFile forKey:@"logo"];
-        [player setObject:team.logoName forKey:@"logoName"];
-        [player saveInBackground];
-        
-    }
-    
-    NSLog(@"ALL DONE");
-
-}
+//
+//-(void) loadImagesToParse
+//{
+//    for (int i = 0; i < [[TeamData FifaTeams] teamInfoCount]; i++)
+//    {
+//        
+//        Team *team = [[TeamData FifaTeams] getTeamAtIndex:i];
+//        
+//        NSLog(@"team name is %@", team.teamName);
+//        
+//        PFQuery *query = [PFQuery queryWithClassName:@"FifaTeams"];
+//        [query whereKey:@"name" equalTo:team.teamName];
+//        PFObject *player = [query getFirstObject];
+//        NSLog(@"teamName %@", team.teamName);
+//        UIImage *image = [UIImage imageNamed:team.logoName];
+//        NSData *imageData = UIImagePNGRepresentation(image);
+//        
+//        PFFile *imageFile = [PFFile fileWithName:team.logoName data:imageData];
+//        [player setObject:imageFile forKey:@"logo"];
+//        [player setObject:team.logoName forKey:@"logoName"];
+//        [player saveInBackground];
+//        
+//    }
+//    
+//    NSLog(@"ALL DONE");
+//
+//}
 @end

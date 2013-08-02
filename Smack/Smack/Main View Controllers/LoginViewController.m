@@ -44,9 +44,7 @@
     NSArray *permissionsArray = nil;
     
     // Login PFUser using Facebook
-    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-        [_activityIndicator stopAnimating]; // Hide loading indicator
-        
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {        
         if (!user) {
             if (!error) {
                 NSLog(@"Uh oh. The user cancelled the Facebook login.");
@@ -56,7 +54,7 @@
                 {
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No internet connections" message:@"Please make sure you have wifi or data connection" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
                     [alert show];
-                    //[SVProgressHUD showErrorWithStatus:@"No internet connection \n Please make sure you have wifi or service"];
+                
                 }
             }
         } else if (user.isNew) {

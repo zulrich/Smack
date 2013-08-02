@@ -2,8 +2,8 @@
 //  SelectPlayerViewController.m
 //  FifaSmack
 //
-//  Created by Tarrence Van As on 9/7/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Zack Ulrich on 1/4/13.
+//
 //
 
 #import "SelectPlayerViewController.h"

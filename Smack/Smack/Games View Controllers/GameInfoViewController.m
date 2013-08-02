@@ -28,11 +28,9 @@
     [super viewDidLoad];
     
     Team *team1 = [[TeamData FifaTeams] getTeamAtIndex:[self.selectedGame.team1Index intValue]];
-    self.player1Image.image = [UIImage imageNamed:team1.logoName];    
+        
     Team *team2 = [[TeamData FifaTeams] getTeamAtIndex:[self.selectedGame.team2Index intValue]];
     
-    self.player2Image.image = [UIImage imageNamed:team2.logoName];
-
     self.player1ScoreLabel.text = [NSString stringWithFormat:@"%@", self.selectedGame.player1Score];
     
     self.player2ScoreLabel.text = [NSString stringWithFormat:@"%@", self.selectedGame.player2Score];
@@ -42,6 +40,22 @@
     
     self.player1TeamLabel.text = team1.teamName;
     self.player2TeamLabel.text = team2.teamName;
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(queue, ^{
+       
+        UIImage *image1 = [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team1.teamName]];
+        
+        UIImage *image2 = [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team2.teamName]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+           
+            self.player1Image.image = image1;
+            self.player2Image.image = image2;
+        });
+        
+    });
     
     if([[[PFUser currentUser] objectForKey:@"fbId"] isEqualToString: self.selectedGame.gameOwnerFbId])
     {

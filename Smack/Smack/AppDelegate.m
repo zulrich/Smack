@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "keys.h"
 
 
 @implementation AppDelegate
@@ -18,8 +19,8 @@
     
     [self customizeAppearence];
     
-    [Parse setApplicationId:@"p5deORQj2iTD6KOZouQhCLTMq8QJZ7bTLxgqR80s"
-                  clientKey:@"oCRac0xNjuHW4tjzgdv1DwvGcG3ZNA9BiLynm3fq"];
+    [Parse setApplicationId:App_ID
+                  clientKey:Client_Key];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [PFFacebookUtils initializeFacebook];

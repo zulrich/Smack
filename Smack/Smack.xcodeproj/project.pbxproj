@@ -151,6 +151,7 @@
 		A4D8D970173D97C9005EE8A6 /* 112-group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group@2x.png"; sourceTree = "<group>"; };
 		A4D8D971173D97C9005EE8A6 /* 116-controller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "116-controller.png"; sourceTree = "<group>"; };
 		A4D8D972173D97C9005EE8A6 /* 116-controller@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "116-controller@2x.png"; sourceTree = "<group>"; };
+		A4E1283917AC69F400CB4389 /* keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keys.h; sourceTree = "<group>"; };
 		A4FBA2B7178CB4E600DA6A51 /* AddGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGameViewController.h; sourceTree = "<group>"; };
 		A4FBA2B8178CB4E600DA6A51 /* AddGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGameViewController.m; sourceTree = "<group>"; };
 		A4FBA2B9178CB4E600DA6A51 /* AddGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGroupViewController.h; sourceTree = "<group>"; };
@@ -302,6 +303,7 @@
 				A4D8D972173D97C9005EE8A6 /* 116-controller@2x.png */,
 				A4D8D907173D7F07005EE8A6 /* AppDelegate.h */,
 				A4D8D908173D7F07005EE8A6 /* AppDelegate.m */,
+				A4E1283917AC69F400CB4389 /* keys.h */,
 				A4D8D910173D7F07005EE8A6 /* MainStoryboard.storyboard */,
 				A4FBA2F6178CB6EE00DA6A51 /* Leaderboard View Controllers */,
 				A4FBA2EF178CB6D100DA6A51 /* Players View Controllers */,
@@ -586,8 +588,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zackary Ulrich (8836DJ3MNK)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zackary Ulrich (8836DJ3MNK)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Elliot Soloway (P6769Z9DA8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elliot Soloway (P6769Z9DA8)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -602,8 +604,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "52B0A7A5-90E6-43A3-B1AF-D730DA9CCCA4";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "52B0A7A5-90E6-43A3-B1AF-D730DA9CCCA4";
+				PROVISIONING_PROFILE = "F92141AF-C607-4E99-AF64-D57CC4E2A415";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92141AF-C607-4E99-AF64-D57CC4E2A415";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -620,8 +622,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zackary Ulrich (8836DJ3MNK)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zackary Ulrich (8836DJ3MNK)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Elliot Soloway (P6769Z9DA8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elliot Soloway (P6769Z9DA8)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -629,8 +631,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "52B0A7A5-90E6-43A3-B1AF-D730DA9CCCA4";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "52B0A7A5-90E6-43A3-B1AF-D730DA9CCCA4";
+				PROVISIONING_PROFILE = "F92141AF-C607-4E99-AF64-D57CC4E2A415";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92141AF-C607-4E99-AF64-D57CC4E2A415";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

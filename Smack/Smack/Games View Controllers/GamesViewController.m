@@ -44,7 +44,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"numgames: %d",[self.games count]);
 	return [self.games count];
 }
 
@@ -83,7 +82,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//	gameToShow = [self.games objectAtIndex:[indexPath row]];
     [self performSegueWithIdentifier:@"selectGameSegue" sender:self];
     
 }

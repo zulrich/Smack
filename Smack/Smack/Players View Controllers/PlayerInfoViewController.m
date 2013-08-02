@@ -34,7 +34,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.playerNameLabel.text = self.selectedPlayer.name;
-    //playerFavTeam.text = player.favoriteTeam;
     self.playerRecordLabel.text = [NSString stringWithFormat:@"%d - %d - %d", self.selectedPlayer.wins.intValue, self.selectedPlayer.losses.intValue, self.selectedPlayer.draws.intValue];
     NSPredicate *Predicate =
     [NSPredicate predicateWithFormat:@"player2Id contains %@ OR player1Id contains %@ ", self.selectedPlayer.objectId, self.selectedPlayer.objectId];
