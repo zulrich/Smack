@@ -151,6 +151,7 @@
 		A4D8D970173D97C9005EE8A6 /* 112-group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group@2x.png"; sourceTree = "<group>"; };
 		A4D8D971173D97C9005EE8A6 /* 116-controller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "116-controller.png"; sourceTree = "<group>"; };
 		A4D8D972173D97C9005EE8A6 /* 116-controller@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "116-controller@2x.png"; sourceTree = "<group>"; };
+		A4E1283A17AC77B600CB4389 /* keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keys.h; sourceTree = "<group>"; };
 		A4FBA2B7178CB4E600DA6A51 /* AddGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGameViewController.h; sourceTree = "<group>"; };
 		A4FBA2B8178CB4E600DA6A51 /* AddGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGameViewController.m; sourceTree = "<group>"; };
 		A4FBA2B9178CB4E600DA6A51 /* AddGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGroupViewController.h; sourceTree = "<group>"; };
@@ -289,6 +290,7 @@
 				A49F4367174083F500E835B2 /* LoginWithFacebookNormal.png */,
 				A49F4363174083AE00E835B2 /* rjdoW.png */,
 				A49F4364174083AE00E835B2 /* arrow.png */,
+				A4E1283A17AC77B600CB4389 /* keys.h */,
 				A438EF6C17A31B4300E513BB /* down.png */,
 				A438EF6D17A31B4300E513BB /* down@2x.png */,
 				A438EF6E17A31B4400E513BB /* up.png */,
