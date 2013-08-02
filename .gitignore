@@ -1,5 +1,6 @@
 # Xcode
 .DS_Store
+keys.h
 build/
 *.pbxuser
 !default.pbxuser
