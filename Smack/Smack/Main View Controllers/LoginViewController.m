@@ -74,13 +74,17 @@
                     dispatch_async(queue, ^{
                         
                         [[PFUser currentUser] save];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self performSegueWithIdentifier:@"LoginSegue" sender:self];
+                            
+                        });
+
                     });
                     
                 }
             }];
             
             
-            [self performSegueWithIdentifier:@"LoginSegue" sender:self];
 
             
         } else {
@@ -99,10 +103,18 @@
                     dispatch_async(queue, ^{
                         
                         [[PFUser currentUser] save];
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self performSegueWithIdentifier:@"LoginSegue" sender:self];
+
+                        });
+                                       
                     });
+                    
+                    
                 }
             }];
-            [self performSegueWithIdentifier:@"LoginSegue" sender:self];
+            
 
            
         }
