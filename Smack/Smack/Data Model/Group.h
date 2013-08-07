@@ -12,8 +12,9 @@
 
 @property (nonatomic, strong) NSString *groupID;
 @property (nonatomic, strong) NSString *groupName;
+@property (nonatomic, strong) NSString *objectID;
 
--(id)initWithName:(NSString *)name withID:(NSString *)groupID;
+-(id)initWithName:(NSString *)name withGroupID:(NSString *)groupID withObjectID:(NSString *)objectID;
 
 
 

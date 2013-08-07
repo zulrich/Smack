@@ -11,14 +11,15 @@
 @implementation Group
 
 
--(id)initWithName:(NSString *)name withID:(NSString *)groupID
+-(id)initWithName:(NSString *)name withGroupID:(NSString *)groupID withObjectID:(NSString *)objectID
 {
     if (self = [super init])
     {
 
     
-    self.groupName = name;
-    self.groupID = groupID;
+        self.groupName = name;
+        self.groupID = groupID;
+        self.objectID = objectID;
         
     }
     return self;

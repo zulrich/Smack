@@ -100,8 +100,9 @@
             // The find succeeded.
             for(PFObject *groupToUserObject in objects)
             {
-                Group *groupObj = [[Group alloc] initWithName:[groupToUserObject objectForKey:@"GroupName"] withID:[groupToUserObject objectForKey:@"GroupId"]];
+                Group *groupObj = [[Group alloc] initWithName:[groupToUserObject objectForKey:@"GroupName"] withGroupID:[groupToUserObject objectForKey:@"GroupId"] withObjectID:groupToUserObject.objectId];
                 [groups addObject:groupObj];
+                
             }
         }
         else
@@ -146,6 +147,46 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"FifaTabSegue" sender:self];
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        Group *group = [groups objectAtIndex:indexPath.row];
+        
+        PFQuery *removeGroupQuery = [PFQuery queryWithClassName:@"GroupToUser"];
+        
+        NSLog(@"object id %@", group.objectID);
+        
+        [SVProgressHUD showWithStatus:@"Removing user from group"];
+        
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        
+        dispatch_async(queue, ^{
+            
+            
+            
+            PFObject *obj = [removeGroupQuery getObjectWithId:group.objectID];
+            
+            [obj delete];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+               
+                [self getGroups];
+                
+                [SVProgressHUD showSuccessWithStatus:@"Done Enjoy"];
+                
+            });
+            
+        });
+        
+        
+        
+        
+        
+        
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
