@@ -102,14 +102,14 @@ static TeamData *myTeamData;
 {
     PFQuery *query = [PFQuery queryWithClassName:@"FifaTeams"];
     query.cachePolicy = kPFCachePolicyCacheElseNetwork;
-    query.limit = 556;
+    query.limit = 560;
     [SVProgressHUD showWithStatus:@"Loading Team Data"];
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if (!error)
         {
-            //NSLog(@"Successfully retrieved %d TESTING.", objects.count);
+            NSLog(@"Successfully retrieved %d TESTING.", objects.count);
             for (int i = 0; i < [objects count]; i++)
             {
                 
