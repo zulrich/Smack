@@ -11,7 +11,18 @@
 #import "Player.h"
 #import "PlayerInfoViewController.h"
 
+@class PlayersViewController;
+
+@protocol PlayersViewDelegate <NSObject>
+
+-(void) playerRemoved;
+
+@end
+
+
 @interface PlayersViewController : UIViewController<UITableViewDataSource, UITableViewDataSource>
+
+@property (nonatomic, weak) id <PlayersViewDelegate> delegate;
 
 @property (nonatomic, strong) NSArray *players;
 @property (nonatomic, strong) NSArray *games;

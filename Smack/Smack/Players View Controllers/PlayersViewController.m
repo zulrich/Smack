@@ -7,6 +7,9 @@
 //
 
 #import "PlayersViewController.h"
+#import "SVProgressHUD.h"
+#import <Parse/Parse.h>
+
 
 @interface PlayersViewController ()
 
@@ -67,6 +70,43 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"selectPlayerSegue" sender:nil];
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        NSLog(@"delete player");
+        
+        Player *player = [players objectAtIndex:indexPath.row];
+        
+        NSLog(@"player object %@", player.objectId);
+        
+        PFQuery *removePlayerQuery = [PFQuery queryWithClassName:@"GroupToUser"];
+        
+        [SVProgressHUD showWithStatus:@"Removing user from group"];
+        
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        
+        dispatch_async(queue, ^{
+            
+            
+            
+            PFObject *obj = [removePlayerQuery getObjectWithId:player.objectId];
+            
+            [obj delete];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.delegate playerRemoved];
+                
+                [SVProgressHUD showSuccessWithStatus:@"Done Enjoy"];
+                
+            });
+            
+        });
+
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

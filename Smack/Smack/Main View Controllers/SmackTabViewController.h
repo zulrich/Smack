@@ -16,7 +16,7 @@
 #import "Player.h"
 #import "TeamData.h"
 
-@interface SmackTabViewController : UITabBarController<UITabBarControllerDelegate, AddGameDelegate, AddPlayerDelegate, GamesViewDelegate>
+@interface SmackTabViewController : UITabBarController<UITabBarControllerDelegate, AddGameDelegate, AddPlayerDelegate, GamesViewDelegate, PlayersViewDelegate>
 
 @property (nonatomic, strong) NSString *groupName;
 @property (nonatomic, strong) NSString *groupID;

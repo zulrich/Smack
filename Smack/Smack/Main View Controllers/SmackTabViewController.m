@@ -183,6 +183,7 @@
         
         [vc setAddPlayerDelegate:self];
         
+        
     }
 }
 
@@ -203,6 +204,13 @@
     [self refreshPlayers];
 }
 
+-(void)playerRemoved
+{
+    NSLog(@"player removed");
+    [self refreshPlayers];
+}
+
+
 #pragma mark - UITabBarControllerDelegate
 -(void)addGameSegue
 {
@@ -222,12 +230,16 @@
         UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Add Player" style:UIBarButtonItemStylePlain target:self action:@selector(addPlayerSegue)];
         self.navigationItem.rightBarButtonItem = button;
         
+        PlayersViewController *playersVC = (PlayersViewController *)viewController;
+        [playersVC setDelegate:self];
+        
     }
     else if([viewController isKindOfClass:[GamesViewController class]])
     {
         
         UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Add Game" style:UIBarButtonItemStylePlain target:self action:@selector(addGameSegue)];
         self.navigationItem.rightBarButtonItem = button;
+        
     }
     
 
