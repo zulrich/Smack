@@ -54,10 +54,6 @@
 
 }
 
--(void)refreshCallback:(NSNotification *)notification{
-    NSLog(@"RefreshCallback");
-}
-
 -(void)refreshPlayers
 {
     PFQuery *queryForPlayers = [PFQuery queryWithClassName:@"GroupToUser"];
@@ -176,6 +172,7 @@
         [vc setPlayers:players];
         [vc setAddGameDelegate:self];
         
+        
     }
     else if ([[segue identifier] isEqualToString:@"addPlayerSegue"])
     {
@@ -185,6 +182,7 @@
         vc.groupName = self.groupName;
         
         [vc setAddPlayerDelegate:self];
+        
     }
 }
 

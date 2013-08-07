@@ -60,7 +60,7 @@
     if([[[PFUser currentUser] objectForKey:@"fbId"] isEqualToString: self.selectedGame.gameOwnerFbId])
     {
         //put back in to allow delete
-        //self.deleteGameButton.hidden = NO;
+        self.deleteGameButton.hidden = NO;
     }
     
 }
@@ -78,9 +78,8 @@
         if(success) {
             [SVProgressHUD showSuccessWithStatus:@"Great success!"];
 
-            //[self.gameInfoDelegate gameRemoved];
+            [self.gameInfoDelegate gameRemoved];
             [self.navigationController popViewControllerAnimated:YES];
-            NSLog(@"Tables updated");
         }
         else {
             [SVProgressHUD showErrorWithStatus:@"Could not save game, please try again."];
@@ -90,13 +89,29 @@
 
 -(void)removeGame:(void (^)(bool)) block{
     
+    BOOL __block gameRemoved = NO;
+    BOOL __block player1Updated = NO;
+    BOOL __block player2Updated = NO;
+    
     PFQuery *removeGameQuery = [PFQuery queryWithClassName:@"FifaGames"];
     [removeGameQuery whereKey:@"objectId" equalTo:self.selectedGame.objectId];
     [removeGameQuery getFirstObjectInBackgroundWithBlock:^(PFObject *gameToRemove, NSError *error){
         
         [gameToRemove setObject:[NSNumber numberWithBool:YES] forKey:@"isArchived"];
-        [gameToRemove save];
-        block(YES);
+        
+        
+        [gameToRemove saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+         
+            if(succeeded)
+            {
+                gameRemoved = YES;
+                if(player1Updated && player2Updated)
+                {
+                    block(YES);
+                }
+            }
+            
+        }];
         
     }];
     
@@ -129,7 +144,22 @@
             
             NSNumber *wlr = [NSNumber numberWithFloat:([wins floatValue]/[losses floatValue])];
             [player setValue:wlr forKey:@"WLR"];
-            [player save];
+            //[player save];//save
+            
+            [player saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                
+                if(succeeded)
+                {
+                    player1Updated = YES;
+                    
+                    if (gameRemoved && player2Updated)
+                    {
+                        block(YES);
+                    }
+                }
+                
+            }];
+
             
         } else {
             NSLog(@"Error game info view: %@ %@", error, [error userInfo]);
@@ -170,7 +200,21 @@
             }
             NSNumber *wlr = [NSNumber numberWithFloat:([wins floatValue]/[losses floatValue])];
             [player setValue:wlr forKey:@"WLR"];
-            [player save];
+            //[player save];//save
+            
+            [player saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                
+                if(succeeded)
+                {
+                    player2Updated = YES;
+                    
+                    if (gameRemoved && player1Updated)
+                    {
+                        block(YES);
+                    }
+                }
+                
+            }];
             
         } else {
             // Log details of our failure
@@ -180,7 +224,6 @@
         }
         
     }];
-    
     
 }
 

@@ -98,7 +98,6 @@
         {
             [groups removeAllObjects];
             // The find succeeded.
-            NSLog(@"Successfully retrieved %d groups.", objects.count);
             for(PFObject *groupToUserObject in objects)
             {
                 Group *groupObj = [[Group alloc] initWithName:[groupToUserObject objectForKey:@"GroupName"] withID:[groupToUserObject objectForKey:@"GroupId"]];
@@ -167,7 +166,6 @@
 - (IBAction)logoutRequested:(id)sender
 {
     
-    NSLog(@"log this bitch out");
     [PFUser logOut]; // Log out
         
     // Return to login page

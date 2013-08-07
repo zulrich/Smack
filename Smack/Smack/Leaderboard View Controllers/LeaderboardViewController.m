@@ -65,7 +65,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"numplayers: %d",[self.players count]);
 	return [self.players count];
 }
 

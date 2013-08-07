@@ -188,6 +188,7 @@
 		A4FBA2F3178CB6D100DA6A51 /* PlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersViewController.m; sourceTree = "<group>"; };
 		A4FBA2F7178CB6EE00DA6A51 /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViewController.h; sourceTree = "<group>"; };
 		A4FBA2F8178CB6EE00DA6A51 /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
+		A4FD0AAA17AF6D080054507B /* enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = enums.h; path = "../Add View Controllers/enums.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +376,7 @@
 		A4FBA2C7178CB5DA00DA6A51 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				A4FD0AAA17AF6D080054507B /* enums.h */,
 				A4FBA2C8178CB5DA00DA6A51 /* Game.h */,
 				A4FBA2C9178CB5DA00DA6A51 /* Game.m */,
 				A4FBA2CA178CB5DA00DA6A51 /* Group.h */,

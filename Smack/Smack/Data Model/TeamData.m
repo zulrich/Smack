@@ -41,7 +41,6 @@ static TeamData *myTeamData;
     PFQuery *query = [PFQuery queryWithClassName:@"FifaTeams"];
     query.cachePolicy = kPFCachePolicyCacheElseNetwork;
     query.limit = 556;
-    NSLog(@"IN cache %d", [query hasCachedResult]);
     [query whereKey:@"name" equalTo:teamName];
     
     
@@ -104,14 +103,13 @@ static TeamData *myTeamData;
     PFQuery *query = [PFQuery queryWithClassName:@"FifaTeams"];
     query.cachePolicy = kPFCachePolicyCacheElseNetwork;
     query.limit = 556;
-    NSLog(@"IN cache %d", [query hasCachedResult]);
     [SVProgressHUD showWithStatus:@"Loading Team Data"];
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if (!error)
         {
-            NSLog(@"Successfully retrieved %d TESTING.", objects.count);
+            //NSLog(@"Successfully retrieved %d TESTING.", objects.count);
             for (int i = 0; i < [objects count]; i++)
             {
                 
@@ -125,7 +123,7 @@ static TeamData *myTeamData;
                     NSString *teamName = [obj objectForKey:@"name"];
                     NSString *sport = [obj objectForKey:@"sport"];
                 
-                    NSLog(@"Queried image name is: %@ index is %d", teamName, i);
+                    //NSLog(@"Queried image name is: %@ index is %d", teamName, i);
                     
                     Team *newTeam = [[Team alloc] initWithID:objID withteamName:teamName withLeague:league withCountry:country withSport:sport withLogo:logoName];
                     

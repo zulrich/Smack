@@ -56,7 +56,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"players count add game %d", [self.players count]);
     
     team1Score = [[NSNumber alloc] initWithInt:0];
     team2Score = [[NSNumber alloc] initWithInt:0];
@@ -97,13 +96,11 @@
 
 -(void)teamPicker:(SelectTeamViewController *)picker didPickTeamIndex:(NSNumber *)teamName didPickTeam:(Team *)theTeamObject
 {
-    //NSLog(@"teamIndex: %d", [theTeamIndex intValue]);
     if (selectTeam1) {
         team1Index = theTeamObject.index;
         team1 = theTeamObject;
         NSString *name = team1.teamName;
         [self.team1Button setTitle:name forState:UIControlStateNormal];
-        NSLog(@"Name is %@", team1.teamName);
     
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         
@@ -119,7 +116,6 @@
         
     }
     else if (selectTeam2) {
-        NSLog(@"select t2");
         team2Index = theTeamObject.index;
         team2 = theTeamObject;
         NSString *name = team2.teamName;
@@ -135,9 +131,6 @@
             });
         });
 
-        
-        //UIImage *image =  [UIImage imageWithData:[[TeamData FifaTeams] getImageForTeamName:team2.teamName]];
-        //[self.player2ImageView setImage:(UIImage *) image];
     }
 }
 
@@ -191,7 +184,6 @@
                         
             [self.addGameDelegate newGameAdded];
             [self dismissViewControllerAnimated:YES completion:nil];
-            NSLog(@"Tables updated");
         }
         else {
             [SVProgressHUD showErrorWithStatus:@"Could not save game, please try again."];
@@ -271,7 +263,7 @@
             }
             NSNumber *wlr = [NSNumber numberWithFloat:([wins floatValue]/[losses floatValue])];
             [player setValue:wlr forKey:@"WLR"];
-            NSLog(@"%@",[wlr stringValue]);
+            //NSLog(@"%@",[wlr stringValue]);
             
             dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
             dispatch_async(queue, ^{
@@ -323,7 +315,7 @@
             
             NSNumber *wlr = [NSNumber numberWithFloat:([wins floatValue]/[losses floatValue])];
             [player setValue:wlr forKey:@"WLR"];
-            NSLog(@"%@",[wlr stringValue]);
+            //NSLog(@"%@",[wlr stringValue]);
             
             dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
             dispatch_async(queue, ^{

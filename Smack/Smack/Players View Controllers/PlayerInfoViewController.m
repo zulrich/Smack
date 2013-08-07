@@ -39,9 +39,6 @@
     [NSPredicate predicateWithFormat:@"player2Id contains %@ OR player1Id contains %@ ", self.selectedPlayer.objectId, self.selectedPlayer.objectId];
     usersGames = [games filteredArrayUsingPredicate:Predicate];
     
-    NSLog(@"player selected: %@", self.selectedPlayer.name);
-    NSLog(@"games count: %d", [games count]);
-    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

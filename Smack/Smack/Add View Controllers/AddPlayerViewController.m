@@ -36,7 +36,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"groupid %@", self.groupID);
     [self sendRequest];
 
 }
@@ -83,7 +82,6 @@
             filteredFbFriends = [NSMutableArray arrayWithCapacity:[fbFriends count]];
             [self sortAtoZ];
 
-            //NSLog(@"friends: %@",[fbFriends description]);
             [self.friendsTableView reloadData];
         }
     }];
