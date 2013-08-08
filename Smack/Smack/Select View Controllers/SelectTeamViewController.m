@@ -57,14 +57,18 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 	// Check to see whether the normal table or search results table is being displayed and return the count from the appropriate array
+    
+    
     if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
         return [filteredTeamArray count];
     }
 	else
 	{
-        return [[TeamData FifaTeams] teamInfoCount];
+        NSLog(@"num rows %d", [[TeamData FifaTeams] FIFAteamInfoCount]);
+        return [[TeamData FifaTeams] FIFAteamInfoCount];
     }
+        return 0;
 }
 
 

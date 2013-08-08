@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Group.h"
 
 @interface GroupCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *groupImageView;
 @property (weak, nonatomic) IBOutlet UILabel *groupLabel;
+
+-(void) configureCell:(Group *)game;
 
 @end

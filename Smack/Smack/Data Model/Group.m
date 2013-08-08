@@ -11,7 +11,7 @@
 @implementation Group
 
 
--(id)initWithName:(NSString *)name withGroupID:(NSString *)groupID withObjectID:(NSString *)objectID
+-(id)initWithName:(NSString *)name withGroupID:(NSString *)groupID withObjectID:(NSString *)objectID withGameType:(GameTypes)gameType
 {
     if (self = [super init])
     {
@@ -20,6 +20,7 @@
         self.groupName = name;
         self.groupID = groupID;
         self.objectID = objectID;
+        self.gameType = gameType;
         
     }
     return self;

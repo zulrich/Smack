@@ -100,7 +100,12 @@
             // The find succeeded.
             for(PFObject *groupToUserObject in objects)
             {
-                Group *groupObj = [[Group alloc] initWithName:[groupToUserObject objectForKey:@"GroupName"] withGroupID:[groupToUserObject objectForKey:@"GroupId"] withObjectID:groupToUserObject.objectId];
+                
+                GameTypes game = [[groupToUserObject objectForKey:@"GroupType"] integerValue];
+                
+                NSLog(@"game %d", game);
+                
+                Group *groupObj = [[Group alloc] initWithName:[groupToUserObject objectForKey:@"GroupName"] withGroupID:[groupToUserObject objectForKey:@"GroupId"] withObjectID:groupToUserObject.objectId withGameType:game];
                 [groups addObject:groupObj];
                 
             }
@@ -135,8 +140,9 @@
     GroupCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Group *group = [groups objectAtIndex:indexPath.row];
-    cell.groupLabel.text = group.groupName;
-        
+    
+    [cell configureCell:group];
+    
     return cell;
 }
 
@@ -197,10 +203,10 @@
         
         // Pass the information to your destination view
         NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
-        NSLog(@"Selected Row index %d ", selectedRowIndex.row);
         Group *selectedGroup = [groups objectAtIndex:selectedRowIndex.row];
         smackVC.groupID = selectedGroup.groupID;
         smackVC.groupName = selectedGroup.groupName;
+        smackVC.gameType = selectedGroup.gameType;
     }
 }
 

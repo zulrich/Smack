@@ -26,4 +26,6 @@
 
 @property (strong, nonatomic) IBOutlet UISearchBar *teamSearchBar;
 
+@property (nonatomic) GameTypes activeGameType;
+
 @end

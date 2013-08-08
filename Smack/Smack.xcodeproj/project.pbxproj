@@ -32,6 +32,7 @@
 		A46FFB6A17A8AF870006223B /* Placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A46FFB6817A8AF870006223B /* Placeholder@2x.png */; };
 		A46FFB6C17A8B6D00006223B /* StoreButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A46FFB6B17A8B6D00006223B /* StoreButton.png */; };
 		A46FFB7017A8D9890006223B /* soccer_ball (1).png in Resources */ = {isa = PBXBuildFile; fileRef = A46FFB6F17A8D9890006223B /* soccer_ball (1).png */; };
+		A4861C5717B34BF900DA5E5F /* hockey.png in Resources */ = {isa = PBXBuildFile; fileRef = A4861C5617B34BF800DA5E5F /* hockey.png */; };
 		A49F4365174083AF00E835B2 /* rjdoW.png in Resources */ = {isa = PBXBuildFile; fileRef = A49F4363174083AE00E835B2 /* rjdoW.png */; };
 		A49F4366174083AF00E835B2 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A49F4364174083AE00E835B2 /* arrow.png */; };
 		A49F4368174083F500E835B2 /* LoginWithFacebookNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = A49F4367174083F500E835B2 /* LoginWithFacebookNormal.png */; };
@@ -111,6 +112,7 @@
 		A46FFB6817A8AF870006223B /* Placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Placeholder@2x.png"; sourceTree = "<group>"; };
 		A46FFB6B17A8B6D00006223B /* StoreButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StoreButton.png; sourceTree = "<group>"; };
 		A46FFB6F17A8D9890006223B /* soccer_ball (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "soccer_ball (1).png"; sourceTree = "<group>"; };
+		A4861C5617B34BF800DA5E5F /* hockey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hockey.png; path = ../../../../Desktop/hockey.png; sourceTree = "<group>"; };
 		A49F4363174083AE00E835B2 /* rjdoW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rjdoW.png; sourceTree = "<group>"; };
 		A49F4364174083AE00E835B2 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		A49F4367174083F500E835B2 /* LoginWithFacebookNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginWithFacebookNormal.png; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				A438EF6D17A31B4300E513BB /* down@2x.png */,
 				A438EF6E17A31B4400E513BB /* up.png */,
 				A46FFB6F17A8D9890006223B /* soccer_ball (1).png */,
+				A4861C5617B34BF800DA5E5F /* hockey.png */,
 				A438EF6F17A31B4400E513BB /* up@2x.png */,
 				A4D8D96D173D97C9005EE8A6 /* 85-trophy.png */,
 				A4D8D96E173D97C9005EE8A6 /* 85-trophy@2x.png */,
@@ -516,6 +519,7 @@
 				A45772FE17A9AACA00B845C8 /* Default.png in Resources */,
 				A457730017A9AB1700B845C8 /* Default@2x.png in Resources */,
 				A457730217A9AB6C00B845C8 /* Default-568h@2x.png in Resources */,
+				A4861C5717B34BF900DA5E5F /* hockey.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

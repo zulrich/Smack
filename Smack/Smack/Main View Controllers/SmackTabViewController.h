@@ -24,4 +24,5 @@
 @property (nonatomic, strong) NSMutableArray *players;
 @property (nonatomic, strong) NSMutableArray *games;
 
+@property (nonatomic) GameTypes gameType;
 @end

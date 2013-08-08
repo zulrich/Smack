@@ -8,12 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "Team.h"
+#import "enums.h"
 //#import "Game.h"
 
 @interface TeamData : NSObject{
     
-    NSMutableDictionary *imageDictionary;
-    NSMutableArray *teamInfo;
+    NSMutableDictionary *FifaImageDictionary;
+    NSMutableArray *FifaTeamInfo;
+    GameTypes selectedGameType;
+    
+    //NSMutableDictionary *NHLImageDictionary;
+    //NSMutableArray *NHLTeamInfo;
     
     
 }
@@ -21,11 +26,14 @@
 -(NSString *) getTeamName:(NSUInteger)teamIndex;
 
 -(NSData *)getImageForTeamName:(NSString *)name;
--(void) startLoading;
+-(void) startLoadingWithGame:(GameTypes)activeGame;
 - (id)getTeamAtIndex:(NSUInteger)index;
 -(NSMutableArray *)getCopyTeamData;
--(NSUInteger)teamInfoCount;
+-(NSUInteger)FIFAteamInfoCount;
+
+//-(NSUInteger)NHLteamInfoCount;
 
 +(TeamData *)FifaTeams;
+//+(TeamData *)NHLTeams;
 
 @end

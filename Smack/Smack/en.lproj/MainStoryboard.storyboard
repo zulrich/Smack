@@ -22,6 +22,8 @@
                                             <action selector="cancelPressed:" destination="d8b-Gf-BMH" id="2EJ-0Q-HKR"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="QDX-dR-vk1"/>
+                                    <barButtonItem title="Add Group" style="plain" id="Jpb-Ar-r4C"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="DMR-2g-OMv"/>
                                     <barButtonItem systemItem="done" id="s0e-lO-fmT">
                                         <color key="tintColor" red="0.0" green="0.12549019610000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -37,11 +39,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Game Type" textAlignment="center" minimumFontSize="17" id="zdM-yu-JdE">
+                                <rect key="frame" x="20" y="156" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="cke-Ix-nYn"/>
                     <connections>
+                        <outlet property="gameTypeField" destination="zdM-yu-JdE" id="AZA-Bb-tGe"/>
                         <outlet property="groupTextField" destination="ItL-RQ-vfY" id="4lA-nj-gk2"/>
                     </connections>
                 </viewController>
@@ -72,7 +81,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="soccer_ball (1).png" id="8va-Xb-oCU">
+                                        <imageView userInteractionEnabled="NO" contentMode="center" id="8va-Xb-oCU">
                                             <rect key="frame" x="20" y="10" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -486,10 +495,10 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="8Gf-aC-Egn">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Placeholder.png" id="8Gf-aC-Egn">
                                             <rect key="frame" x="40" y="10" width="45" height="45"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="acz-TY-1Qn">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Placeholder.png" id="acz-TY-1Qn">
                                             <rect key="frame" x="235" y="10" width="45" height="45"/>
                                         </imageView>
                                     </subviews>
@@ -662,10 +671,10 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="HxF-CA-iwp">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Placeholder.png" id="HxF-CA-iwp">
                                                     <rect key="frame" x="40" y="10" width="45" height="45"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="FDp-B7-ncm">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Placeholder.png" id="FDp-B7-ncm">
                                                     <rect key="frame" x="235" y="10" width="45" height="45"/>
                                                 </imageView>
                                             </subviews>
@@ -1007,158 +1016,7 @@
         <image name="LoginWithFacebookNormal.png" width="159" height="29"/>
         <image name="Placeholder.png" width="60" height="60"/>
         <image name="rjdoW.png" width="606" height="91"/>
-        <image name="soccer_ball (1).png" width="128" height="128"/>
     </resources>
-    <classes>
-        <class className="AddGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelPressed:"/>
-                <relationship kind="action" name="changePlayer1Score:"/>
-                <relationship kind="action" name="changePlayer2Score:"/>
-                <relationship kind="action" name="savePressed:"/>
-                <relationship kind="outlet" name="player1Button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="player1ImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="player1ScoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="player2Button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="player2ImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="player2ScoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="team1Button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="team2Button" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="AddGroupViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGroupViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelPressed:"/>
-                <relationship kind="action" name="donePressed:"/>
-                <relationship kind="outlet" name="groupTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="AddPlayerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddPlayerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelPressed:"/>
-                <relationship kind="action" name="savePressed:"/>
-                <relationship kind="outlet" name="friendsTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="GameCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="player1Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="player1Score" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="player2Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="player2Score" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="team1Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="team2Image" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="GameInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameInfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="deletePressed:"/>
-                <relationship kind="outlet" name="deleteGameButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="player1Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="player1NameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="player1ScoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="player1TeamLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="player2Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="player2NameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="player2ScoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="player2TeamLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GamesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GamesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="gamesTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="GroupCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="groupImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="groupLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GroupsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutRequested:"/>
-            </relationships>
-        </class>
-        <class className="LeaderboardCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeaderboardCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="drawLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="loseLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rank" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="winLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LeaderboardViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeaderboardViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="leaderboardTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="loginButtonTouchHandler:"/>
-            </relationships>
-        </class>
-        <class className="PlayerCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PlayerInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerInfoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="playerNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerRecordLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerRecordTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="PlayerSelectCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerSelectCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PlayersViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayersViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="playersTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="SelectPlayerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectPlayerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="SelectTeamViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectTeamViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="teamSearchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="teamTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="SmackTabViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SmackTabViewController.h"/>
-        </class>
-        <class className="TeamSelectCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamSelectCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -1,8 +1,8 @@
 typedef enum
 {
+    NULL_GAME = -1,
+    FIFA_GAME = 0,
+    NHL_GAME = 1
 
-    SOCCER_GROUP = 0,
-    HOCKEY_GROUP = 1
 
-
-}GroupTypes;
+}GameTypes;

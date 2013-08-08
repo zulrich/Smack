@@ -7,14 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "enums.h"
 
 @interface Group : NSObject
 
 @property (nonatomic, strong) NSString *groupID;
 @property (nonatomic, strong) NSString *groupName;
 @property (nonatomic, strong) NSString *objectID;
+@property (nonatomic) GameTypes gameType;
 
--(id)initWithName:(NSString *)name withGroupID:(NSString *)groupID withObjectID:(NSString *)objectID;
+-(id)initWithName:(NSString *)name withGroupID:(NSString *)groupID
+     withObjectID:(NSString *)objectID withGameType:(GameTypes)gameType;
 
 
 

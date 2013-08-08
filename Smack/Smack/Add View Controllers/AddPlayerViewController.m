@@ -207,7 +207,7 @@
         [playerObject setObject:self.groupID forKey:@"GroupId"];
         [playerObject setObject:selectedFbId forKey:@"fbId"];
         [playerObject setObject:self.groupName forKey:@"GroupName"];
-        [playerObject setObject:[NSNumber numberWithInt:SOCCER_GROUP] forKey:@"GroupType"];
+        [playerObject setObject:[NSNumber numberWithInt:FIFA_GAME] forKey:@"GroupType"];
         [playerObject save];
         
         [self.addPlayerDelegate newPlayerAdded];

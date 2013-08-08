@@ -26,6 +26,21 @@
     // Configure the view for the selected state
 }
 
+-(void) configureCell:(Group *)group
+{
+    self.groupLabel.text = group.groupName;
+    
+    if (group.gameType == FIFA_GAME)
+    {
+        self.imageView.image = [UIImage imageNamed:@"soccer_ball (1)"];
+    }
+    
+    else if(group.gameType == NHL_GAME)
+    {
+        self.imageView.image = [UIImage imageNamed:@"hockey"];
+    }
+}
+
 -(void)awakeFromNib
 {
     [super awakeFromNib];

@@ -31,7 +31,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[TeamData FifaTeams] startLoading];
+    
+    NSLog(@"game type %d", self.gameType);
+    
+    [[TeamData FifaTeams] startLoadingWithGame:self.gameType];
+    
     self.delegate = self;
     
     [self refreshGames];
@@ -171,6 +175,7 @@
 
         [vc setPlayers:players];
         [vc setAddGameDelegate:self];
+        [vc setActiveGameType:self.gameType];
         
         
     }

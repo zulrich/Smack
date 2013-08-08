@@ -154,12 +154,15 @@
         selectTeam2 = NO;
         SelectTeamViewController *vc = [segue destinationViewController];
         [vc setDelegate:self];
+        [vc setActiveGameType:self.activeGameType];
     }
     else if ([[segue identifier] isEqualToString:@"selectTeam2"]) {
         selectTeam1 = NO;
         selectTeam2 = YES;
         SelectTeamViewController *vc = [segue destinationViewController];
         [vc setDelegate:self];
+        [vc setActiveGameType:self.activeGameType];
+
     }
 }
 

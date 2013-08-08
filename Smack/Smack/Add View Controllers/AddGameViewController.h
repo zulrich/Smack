@@ -55,6 +55,8 @@
 
 @property (nonatomic, strong) NSMutableArray *players;
 
+@property (nonatomic) GameTypes activeGameType;
+
 
 - (IBAction)cancelPressed:(id)sender;
 - (IBAction)savePressed:(id)sender;
