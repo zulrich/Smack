@@ -604,7 +604,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="by5-Pw-WJg"/>
+                    <navigationItem key="navigationItem" id="by5-Pw-WJg">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="lqv-49-KQc"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="deleteGameButton" destination="k6K-Ri-Ae4" id="nIx-eY-aME"/>
                         <outlet property="player1Image" destination="MjX-Bk-tbh" id="VAa-br-ITB"/>
@@ -726,7 +728,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="U6W-rB-ps2"/>
+                    <navigationItem key="navigationItem" id="U6W-rB-ps2">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="uqF-k4-uGX"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="playerNameLabel" destination="hZ7-FK-4LZ" id="kd1-HJ-usz"/>
                         <outlet property="playerRecordLabel" destination="PuZ-tQ-mp4" id="OqC-Rr-0d5"/>

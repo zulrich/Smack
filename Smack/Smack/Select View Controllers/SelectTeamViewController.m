@@ -65,7 +65,6 @@
     }
 	else
 	{
-        NSLog(@"num rows %d", [[TeamData FifaTeams] FIFAteamInfoCount]);
         return [[TeamData FifaTeams] FIFAteamInfoCount];
     }
         return 0;

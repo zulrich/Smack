@@ -149,6 +149,7 @@ static TeamData *myTeamData;
 
 -(void) loadNHLTeamDataFromParse
 {
+    [FifaTeamInfo removeAllObjects];
     PFQuery *query = [PFQuery queryWithClassName:@"NHLTeams"];
     query.cachePolicy = kPFCachePolicyCacheElseNetwork;
     query.limit = 30;
@@ -195,6 +196,8 @@ static TeamData *myTeamData;
 
 -(void)loadFIFATeamDataFromParse
 {
+    
+    [FifaTeamInfo removeAllObjects];
     PFQuery *query = [PFQuery queryWithClassName:@"FifaTeams"];
     query.cachePolicy = kPFCachePolicyCacheElseNetwork;
     query.limit = 560;

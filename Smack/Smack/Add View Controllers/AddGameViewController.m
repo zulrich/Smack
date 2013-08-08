@@ -217,6 +217,8 @@
     
     [gameObject setObject:groupId forKey:@"GroupId"];
     
+    [gameObject setObject:[NSNumber numberWithInt:self.activeGameType] forKey:@"GameType"];
+    
     [gameObject setObject:[[PFUser currentUser] objectForKey:@"fbId"] forKey:@"GameOwnerFbId"];
     
     [gameObject setObject:[NSNumber numberWithBool:NO] forKey:@"isArchived"];

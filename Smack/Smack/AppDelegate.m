@@ -25,7 +25,41 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [PFFacebookUtils initializeFacebook];
     
-    //[[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
+    
+    NSString *currentAppVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    
+    NSLog(currentAppVersion);
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    
+    if ([defaults objectForKey:@"savedAppVersionKey"] != nil)
+    {
+        //key exists
+        
+        NSString *savedAppVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"savedAppVersionKey"];
+        
+        if ([currentAppVersion isEqualToString:savedAppVersion])
+        {
+            //still running the same app version
+            NSLog(@"cur version");
+        }
+        else
+        {
+            NSLog(@"New update version");
+            [defaults setObject:currentAppVersion forKey:@"savedAppVersionKey"];
+            //the app version changed from the last launch
+        }
+        
+    }
+    else
+    {
+        //first run, set the key & synchronize
+        NSLog(@"first run");
+        [defaults setObject:currentAppVersion forKey:@"savedAppVersionKey"];
+        
+    }
     
    
 
