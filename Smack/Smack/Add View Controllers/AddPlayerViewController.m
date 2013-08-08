@@ -24,6 +24,7 @@
 
 @synthesize groupID;
 @synthesize groupName;
+@synthesize activeGameType;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -207,7 +208,7 @@
         [playerObject setObject:self.groupID forKey:@"GroupId"];
         [playerObject setObject:selectedFbId forKey:@"fbId"];
         [playerObject setObject:self.groupName forKey:@"GroupName"];
-        [playerObject setObject:[NSNumber numberWithInt:FIFA_GAME] forKey:@"GroupType"];
+        [playerObject setObject:[NSNumber numberWithInt:self.activeGameType] forKey:@"GroupType"];
         [playerObject save];
         
         [self.addPlayerDelegate newPlayerAdded];

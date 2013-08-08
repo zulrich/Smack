@@ -29,7 +29,7 @@
     
     NSString *currentAppVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     
-    NSLog(currentAppVersion);
+    NSLog(@"version: %@" , currentAppVersion);
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 

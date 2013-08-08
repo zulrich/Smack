@@ -11,6 +11,7 @@
 #import "SVProgressHUD.h"
 #import "Player.h"
 #import "PlayerCell.h"
+#import "enums.h"
 
 @class AddPlayerViewController;
 @protocol AddPlayerDelegate <NSObject>
@@ -32,5 +33,6 @@
 
 @property (nonatomic, strong) NSString *groupID;
 @property (nonatomic, strong) NSString *groupName;
+@property (nonatomic) GameTypes activeGameType;
 
 @end

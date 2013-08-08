@@ -185,6 +185,7 @@
         AddPlayerViewController *vc = (AddPlayerViewController*)segue.destinationViewController;
         vc.groupID = self.groupID;
         vc.groupName = self.groupName;
+        vc.activeGameType = self.gameType;
         
         [vc setAddPlayerDelegate:self];
         
