@@ -44,6 +44,8 @@
     NSArray *permissionsArray = nil;
     
     // Login PFUser using Facebook
+    
+    [SVProgressHUD showWithStatus:@"Logging in"];
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {        
         if (!user) {
             if (!error) {
@@ -74,6 +76,8 @@
                     dispatch_async(queue, ^{
                         
                         [[PFUser currentUser] save];
+                        [SVProgressHUD showSuccessWithStatus:@"Done"];
+
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [self performSegueWithIdentifier:@"LoginSegue" sender:self];
                             
@@ -103,7 +107,8 @@
                     dispatch_async(queue, ^{
                         
                         [[PFUser currentUser] save];
-                        
+                    [SVProgressHUD showSuccessWithStatus:@"Done"];
+
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [self performSegueWithIdentifier:@"LoginSegue" sender:self];
 
@@ -120,6 +125,7 @@
         }
     }];
 }
+
 
 
 - (void)didReceiveMemoryWarning
