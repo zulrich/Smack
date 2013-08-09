@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A41D7D7717B59231004A66D2 /* fblogin.png in Resources */ = {isa = PBXBuildFile; fileRef = A41D7D7617B59231004A66D2 /* fblogin.png */; };
+		A41D7D7917B5983F004A66D2 /* smack text.png in Resources */ = {isa = PBXBuildFile; fileRef = A41D7D7817B5983F004A66D2 /* smack text.png */; };
+		A41D7D7B17B598E2004A66D2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41D7D7A17B598E2004A66D2 /* MainStoryboard.storyboard */; };
 		A421601E17A45F160095E447 /* blue_gray_gradient_44.png in Resources */ = {isa = PBXBuildFile; fileRef = A421601D17A45F160095E447 /* blue_gray_gradient_44.png */; };
 		A421602217A461170095E447 /* table_gray_gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = A421602117A461170095E447 /* table_gray_gradient.png */; };
 		A438EF6B17A312D600E513BB /* TableCellGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = A438EF6A17A312D600E513BB /* TableCellGradient.png */; };
@@ -42,7 +45,6 @@
 		A4D8D903173D7F07005EE8A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4D8D901173D7F07005EE8A6 /* InfoPlist.strings */; };
 		A4D8D905173D7F07005EE8A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D8D904173D7F07005EE8A6 /* main.m */; };
 		A4D8D909173D7F07005EE8A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D8D908173D7F07005EE8A6 /* AppDelegate.m */; };
-		A4D8D912173D7F07005EE8A6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D8D910173D7F07005EE8A6 /* MainStoryboard.storyboard */; };
 		A4D8D91C173D8414005EE8A6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D8D91B173D8414005EE8A6 /* Parse.framework */; };
 		A4D8D91E173D844D005EE8A6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D8D91D173D844D005EE8A6 /* AudioToolbox.framework */; };
 		A4D8D920173D8453005EE8A6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D8D91F173D8453005EE8A6 /* CFNetwork.framework */; };
@@ -85,6 +87,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A41D7D7617B59231004A66D2 /* fblogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fblogin.png; sourceTree = "<group>"; };
+		A41D7D7817B5983F004A66D2 /* smack text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "smack text.png"; sourceTree = "<group>"; };
+		A41D7D7A17B598E2004A66D2 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A421601D17A45F160095E447 /* blue_gray_gradient_44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_gray_gradient_44.png; sourceTree = "<group>"; };
 		A421602117A461170095E447 /* table_gray_gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_gray_gradient.png; sourceTree = "<group>"; };
 		A438EF6A17A312D600E513BB /* TableCellGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TableCellGradient.png; path = ../TableCellGradient.png; sourceTree = "<group>"; };
@@ -126,7 +131,6 @@
 		A4D8D906173D7F07005EE8A6 /* Smack-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smack-Prefix.pch"; sourceTree = "<group>"; };
 		A4D8D907173D7F07005EE8A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A4D8D908173D7F07005EE8A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A4D8D911173D7F07005EE8A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A4D8D91B173D8414005EE8A6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A4D8D91D173D844D005EE8A6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A4D8D91F173D8453005EE8A6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -284,6 +288,8 @@
 		A4D8D8FE173D7F07005EE8A6 /* Smack */ = {
 			isa = PBXGroup;
 			children = (
+				A41D7D7817B5983F004A66D2 /* smack text.png */,
+				A41D7D7617B59231004A66D2 /* fblogin.png */,
 				A46FFB6B17A8B6D00006223B /* StoreButton.png */,
 				A46FFB6717A8AF870006223B /* Placeholder.png */,
 				A46FFB6817A8AF870006223B /* Placeholder@2x.png */,
@@ -308,7 +314,7 @@
 				A4D8D972173D97C9005EE8A6 /* 116-controller@2x.png */,
 				A4D8D907173D7F07005EE8A6 /* AppDelegate.h */,
 				A4D8D908173D7F07005EE8A6 /* AppDelegate.m */,
-				A4D8D910173D7F07005EE8A6 /* MainStoryboard.storyboard */,
+				A41D7D7A17B598E2004A66D2 /* MainStoryboard.storyboard */,
 				A4FBA2F6178CB6EE00DA6A51 /* Leaderboard View Controllers */,
 				A4FBA2EF178CB6D100DA6A51 /* Players View Controllers */,
 				A4FBA2E5178CB69200DA6A51 /* Main View Controllers */,
@@ -491,7 +497,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4D8D903173D7F07005EE8A6 /* InfoPlist.strings in Resources */,
-				A4D8D912173D7F07005EE8A6 /* MainStoryboard.storyboard in Resources */,
 				A4D8D973173D97C9005EE8A6 /* 85-trophy.png in Resources */,
 				A4D8D974173D97C9005EE8A6 /* 85-trophy@2x.png in Resources */,
 				A4D8D975173D97C9005EE8A6 /* 112-group.png in Resources */,
@@ -520,6 +525,9 @@
 				A457730017A9AB1700B845C8 /* Default@2x.png in Resources */,
 				A457730217A9AB6C00B845C8 /* Default-568h@2x.png in Resources */,
 				A4861C5717B34BF900DA5E5F /* hockey.png in Resources */,
+				A41D7D7717B59231004A66D2 /* fblogin.png in Resources */,
+				A41D7D7917B5983F004A66D2 /* smack text.png in Resources */,
+				A41D7D7B17B598E2004A66D2 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,14 +579,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		A4D8D910173D7F07005EE8A6 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A4D8D911173D7F07005EE8A6 /* en */,
-			);
-			name = MainStoryboard.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -594,8 +594,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Elliot Soloway (P6769Z9DA8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elliot Soloway (P6769Z9DA8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zackary Ulrich (8836DJ3MNK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zackary Ulrich (8836DJ3MNK)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -610,8 +610,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "F92141AF-C607-4E99-AF64-D57CC4E2A415";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92141AF-C607-4E99-AF64-D57CC4E2A415";
+				PROVISIONING_PROFILE = "52B0A7A5-90E6-43A3-B1AF-D730DA9CCCA4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "52B0A7A5-90E6-43A3-B1AF-D730DA9CCCA4";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -628,8 +628,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Elliot Soloway (P6769Z9DA8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elliot Soloway (P6769Z9DA8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zackary Ulrich (8836DJ3MNK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zackary Ulrich (8836DJ3MNK)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -637,8 +637,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "F92141AF-C607-4E99-AF64-D57CC4E2A415";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92141AF-C607-4E99-AF64-D57CC4E2A415";
+				PROVISIONING_PROFILE = "52B0A7A5-90E6-43A3-B1AF-D730DA9CCCA4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "52B0A7A5-90E6-43A3-B1AF-D730DA9CCCA4";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
