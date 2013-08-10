@@ -45,7 +45,6 @@
     
     // Login PFUser using Facebook
     
-    [SVProgressHUD showWithStatus:@"Logging in"];
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {        
         if (!user) {
             if (!error) {
@@ -56,12 +55,13 @@
                 {
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No internet connections" message:@"Please make sure you have wifi or data connection" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
                     [alert show];
+                    
                 
                 }
             }
         } else if (user.isNew) {
             NSLog(@"User with facebook signed up and logged in!");
-            
+            [SVProgressHUD showWithStatus:@"Logging in"];
             FBRequest *request = [FBRequest requestForMe];
             [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if (!error) {
@@ -93,11 +93,15 @@
             
         } else {
             NSLog(@"User with facebook logged in!");
-            
+            [SVProgressHUD showWithStatus:@"Logging in"];
+
             FBRequest *request = [FBRequest requestForMe];
             [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if (!error) {
                     // Store the current user's Facebook ID on the user
+                    
+                    NSLog(@"fb id %@", [result objectForKey:@"id"]);
+                    
                     [[PFUser currentUser] setObject:[result objectForKey:@"id"]
                                              forKey:@"fbId"];
                     [[PFUser currentUser] setObject:[result objectForKey:@"name"]

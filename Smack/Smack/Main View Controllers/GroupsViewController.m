@@ -51,6 +51,7 @@
     groups = [[NSMutableArray alloc] init];
     
     FBRequest *request = [FBRequest requestForMe];
+    
     [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         // handle response
         if (!error)
@@ -66,6 +67,7 @@
         else
         {
             NSLog(@"Some other error: %@", error);
+            //[PFUser logOut];
         }
         
 
@@ -90,8 +92,46 @@
 {
     
     [SVProgressHUD showWithStatus:@"Loading Groups"];
+    
+
+    NSString *fbID = [[PFUser currentUser] objectForKey:@"fbId"];
+    
+    NSLog(@"Facebook ID: %@", fbID);
+    
+    if (fbID != NULL)
+    {
+        [self loadGroups];
+
+    }
+    
+    else
+    {
+        NSLog(@"resave the facebook id");
+        
+        FBRequest *request = [FBRequest requestForMe];
+        [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            if (!error) {
+                // Store the current user's Facebook ID on the user
+                [[PFUser currentUser] setObject:[result objectForKey:@"id"]
+                                         forKey:@"fbId"];
+                [[PFUser currentUser] setObject:[result objectForKey:@"name"]
+                                         forKey:@"Name"];
+                
+                [[PFUser currentUser] save];
+                
+                [self loadGroups];
+            }
+            
+        }];
+    }
+
+}
+
+-(void)loadGroups
+{
+    NSString *fbID = [[PFUser currentUser] objectForKey:@"fbId"];
     PFQuery *query = [PFQuery queryWithClassName:@"GroupToUser"];
-    [query whereKey:@"fbId" equalTo:[[PFUser currentUser] objectForKey:@"fbId"]];
+    [query whereKey:@"fbId" equalTo:fbID];
     [query orderByAscending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error)
@@ -119,11 +159,8 @@
         self.tableView.userInteractionEnabled = YES;
         [self.tableView reloadData];
         [SVProgressHUD showSuccessWithStatus:@"Done Enjoy"];
-
+        
     }];
-    
-    
-
 }
 
 #pragma mark - Table view data source

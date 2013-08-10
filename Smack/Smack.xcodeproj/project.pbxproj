@@ -647,8 +647,8 @@
 		A4D8D919173D7F07005EE8A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zackary Ulrich (8836DJ3MNK)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zackary Ulrich (8836DJ3MNK)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Elliot Soloway (P6769Z9DA8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elliot Soloway (P6769Z9DA8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -659,8 +659,8 @@
 				GCC_PREFIX_HEADER = "Smack/Smack-Prefix.pch";
 				INFOPLIST_FILE = "Smack/Smack-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "52B0A7A5-90E6-43A3-B1AF-D730DA9CCCA4";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "52B0A7A5-90E6-43A3-B1AF-D730DA9CCCA4";
+				PROVISIONING_PROFILE = "F92141AF-C607-4E99-AF64-D57CC4E2A415";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92141AF-C607-4E99-AF64-D57CC4E2A415";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -668,8 +668,8 @@
 		A4D8D91A173D7F07005EE8A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zackary Ulrich (8836DJ3MNK)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zackary Ulrich (8836DJ3MNK)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Elliot Soloway (P6769Z9DA8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elliot Soloway (P6769Z9DA8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -684,8 +684,8 @@
 				GCC_PREFIX_HEADER = "Smack/Smack-Prefix.pch";
 				INFOPLIST_FILE = "Smack/Smack-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "52B0A7A5-90E6-43A3-B1AF-D730DA9CCCA4";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "52B0A7A5-90E6-43A3-B1AF-D730DA9CCCA4";
+				PROVISIONING_PROFILE = "F92141AF-C607-4E99-AF64-D57CC4E2A415";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92141AF-C607-4E99-AF64-D57CC4E2A415";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
